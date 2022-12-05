@@ -7,10 +7,22 @@ import SectionHeader from '../../../components/SectionHeader';
 import SquareCard from '../../../components/SquareCard';
 import PostDetails from '../../../components/PostDetails';
 import {FacebookShareButton,FacebookIcon} from "react-share"
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 const PostDetailsRoute = () => {
+    const router = useRouter()
+    console.log(router.query);
     return (
         <div className='container mx-auto my-5'>
+            <Head>
+            <title>News Details page</title>
+            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            <meta property="og:title" content="News Details Pagess" key="title" />
+            <meta property="og:image" content="My page title" key="image" itemProp='image'/>
+
+
+            </Head>
             <div className='flex justify-center my-5'>
                 <img src='https://tpc.googlesyndication.com/simgad/3217729136485671980' alt='ad images'/>
             </div>
@@ -26,7 +38,7 @@ const PostDetailsRoute = () => {
                                     <p className='text-xs'>প্রকাশ: ০৪ ডিসেম্বর ২০২২, ২০: ০০</p>
                                 </div>
                                 <div className='flex gap-5'>
-                                    <FacebookShareButton url='https://akash-rahman.vercel.app' quote='Hello Developers!'>
+                                    <FacebookShareButton url={`https://akash-prothom-alo/category/${router.query.name}/${router.query.id}`} quote='Hello Developers!'>
                                         <div className='text-3xl hover:scale-105 transition-all text-blue-600'>
                                             <FaFacebookSquare/>
                                         </div>  
