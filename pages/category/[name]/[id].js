@@ -38,7 +38,7 @@ const PostDetailsRoute = () => {
                                     <p className='text-xs'>প্রকাশ: ০৪ ডিসেম্বর ২০২২, ২০: ০০</p>
                                 </div>
                                 <div className='flex gap-5'>
-                                    <FacebookShareButton url={`https://akash-prothom-alo/category/${router.query.name}/${router.query.id}`} quote='Hello Developers!'>
+                                    <FacebookShareButton url={`https://akash-prothom-alo.vercel.app/category/${router.query.name}/${router.query.id}`} quote='Hello Developers!'>
                                         <div className='text-3xl hover:scale-105 transition-all text-blue-600'>
                                             <FaFacebookSquare/>
                                         </div>  
