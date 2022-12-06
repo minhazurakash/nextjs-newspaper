@@ -1,12 +1,36 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from "../assests/Prothom-Alo-logo.jpg"
 import { FaBars, FaSearch } from 'react-icons/fa';
 import Link from 'next/link';
 
 const Navigation = () => {
     const [hidden,setHidden]= useState(false)
+    const [prevScrollPos, setPrevScrollPos] = useState(0);
+    const [visible, setVisible] = useState(true);
+
+    // new function:
+  const handleScroll = () => {
+    // find current scroll position
+    const currentScrollPos = window.pageYOffset;
+
+    // set state based on location info (explained in more detail below)
+    setVisible((prevScrollPos > currentScrollPos && prevScrollPos - currentScrollPos > 70) || currentScrollPos < prevScrollPos || currentScrollPos < 200);
+
+    // set state to new scroll position
+    setPrevScrollPos(currentScrollPos);
+  };
+
+  // new useEffect:
+    useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+
+  }, [prevScrollPos, visible, handleScroll]);
+
+
     return (
-        <div className='w-full shadow-xl mb-10 px-3 sm:px-0 fixed bg-white z-50'>
+        <div style={{ top: visible ? '0' : '-113px' }} className='w-full transition-all shadow-xl mb-10 px-3 sm:px-0 fixed bg-white z-50'>
             <div className='container mx-auto h-28 flex justify-between items-center'>
             <div className='w-1/3 hidden md:block'>
                     <div className='flex gap-3 items-center mb-3'>
