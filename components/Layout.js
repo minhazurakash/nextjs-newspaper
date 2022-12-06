@@ -15,6 +15,7 @@ const Layout = ({children}) => {
     return (
         <div>
             <Navigation/>
+            <div className='h-36 md:h-48'></div>
                 {children}
             <Footer/>
         </div>

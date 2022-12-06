@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from "../assests/Prothom-Alo-logo.jpg"
-import { FaSearch } from 'react-icons/fa';
+import { FaBars, FaSearch } from 'react-icons/fa';
 import Link from 'next/link';
 
 const Navigation = () => {
+    const [hidden,setHidden]= useState(false)
     return (
-        <div className='w-full h-44 px-5'>
-            <div className='flex justify-between items-center'>
-                <div className='w-1/3'>
+        <div className='w-full shadow-xl mb-10 px-3 sm:px-0 fixed bg-white z-50'>
+            <div className='container mx-auto h-28 flex justify-between items-center'>
+            <div className='w-1/3 hidden md:block'>
                     <div className='flex gap-3 items-center mb-3'>
                         <input className='input input-xs bg-transparent input-secondary rounded-none focus:outline-none'/>
                         <FaSearch className='text-xl cursor-pointer'/>
                     </div>
                     <h5 className='text-xs'>মঙ্গলবার, ০৬ ডিসেম্বর ২০২২</h5>
+                </div>
+                <div className='w-1/3 block md:hidden'>
+                    <div className=''>
+                        <FaBars onClick={()=>setHidden(!hidden)} className='text-xl cursor-pointer'/>
+                    </div>
                 </div>
                 <div className='w-1/3 flex justify-center items-center h-full'>
                     <Link href='/'>
@@ -25,10 +31,40 @@ const Navigation = () => {
                     </Link>
                 </div>
             </div>
-                <div className='py-3 border-t-2 flex flex-wrap gap-5 justify-center shadow-xl'>
-                {/* {
-                    menu?.map((item)=> <Link to={`/category/${item.name}`} key={item?.id}>{item?.name}</Link>)  
-                } */}
+            <div className={`${hidden ? "hidden" : "block"} md:block py-3 border-t-2 flex flex-wrap gap-5 justify-center`}>
+                <ul className='px-5 grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap md:justify-center gap-5'>
+                    <li >
+                        <Link href="/category/home" legacyBehavior>
+                            <a className='hover:text-blue-500'>Home</a>
+                        </Link>
+                    </li>
+                    <li >
+                        <Link href="/category/aksh" legacyBehavior>
+                            <a className='hover:text-blue-500'>Life-style</a>
+                        </Link>
+                    </li>
+                    <li >
+                        <Link href="/category/aksh" legacyBehavior>
+                            <a className='hover:text-blue-500'>Entertainment</a>
+                        </Link>
+                    </li>
+                    <li >
+                        <Link href="/category/aksh" legacyBehavior>
+                            <a className='hover:text-blue-500'>World</a>
+                        </Link>
+                    </li>
+                    <li >
+                        <Link href="/category/aksh" legacyBehavior>
+                            <a className='hover:text-blue-500'>Bangladesh</a>
+                        </Link>
+                    </li>
+                    <li >
+                        <Link href="/category/aksh" legacyBehavior>
+                            <a className='hover:text-blue-500'>Sports</a>
+                        </Link>
+                    </li>
+                    
+                </ul>
             </div>
         </div>
         
