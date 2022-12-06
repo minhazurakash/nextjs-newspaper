@@ -1,4 +1,3 @@
-import React from 'react';
 import Hero from '../components/Hero';
 import BusinessSection from '../components/section/BusinessSection';
 import EntertainmentSection from '../components/section/EntertainmentSection';
@@ -10,9 +9,6 @@ import Head from 'next/head';
 
 
 const Home = () => {
-    <Head>
-        <title>News Paper</title>
-    </Head>
     
     return (
         <div className='container mx-auto px-3 sm:px-0'>

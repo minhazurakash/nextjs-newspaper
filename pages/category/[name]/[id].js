@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { FaCopy, FaFacebookSquare, FaTwitterSquare, FaWhatsappSquare } from 'react-icons/fa';
 import MixCard from '../../../components/MixCard';
@@ -12,7 +12,13 @@ import { useRouter } from 'next/router';
 
 const PostDetailsRoute = () => {
     const router = useRouter()
-    console.log(router.query);
+    const [news,setNews]=useState([])
+    useEffect(()=>{
+        fetch('https://mpnews24bd.com/api/news')
+        .then(res => res.json())
+        .then(data => setNews(data.news))
+    },[])
+    console.log(news);
     return (
         <div className='container mx-auto my-5 px-3 sm:px-0'>
             <Head>
@@ -30,10 +36,10 @@ const PostDetailsRoute = () => {
                     <div className='py-5'>
                         <SectionHeader title={'category'} link="/category/abc"/>
                         <div>
-                            <h1 className='text-4xl text-black font-semibold'>যেভাবে ‘সাংবাদিক’ হয়েছিলেন ক্যাটরিনা</h1>
+                            <h1 className='text-4xl text-black font-semibold'>{news && news[11]?.title || "যেভাবে ‘সাংবাদিক’ হয়েছিলেন ক্যাটরিনা"} </h1>
                             <div className='mt-8 flex justify-between items-center'>
                                 <div>
-                                    <p className='text-sm'>প্রকাশ: ০৪ ডিসেম্বর ২০২২, ২০: ০০</p>
+                                    <p className='text-sm'>{news && news[11]?.datetime || "প্রকাশ: ০৪ ডিসেম্বর ২০২২, ২০: ০০"}</p>
                                 </div>
                                 <div>
                                     <h3 className='mb-2'>Share with friends</h3>
@@ -58,7 +64,7 @@ const PostDetailsRoute = () => {
                             </div>
                         </div>
                     </div>
-                    <PostDetails/>
+                    <PostDetails news={news[11]}/>
                     <div className='mt-10'>
                         <div>
                             <h2 className="mb-4">আরও পড়ুন</h2>

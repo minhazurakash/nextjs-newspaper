@@ -4,7 +4,7 @@ import { FaBars, FaSearch } from 'react-icons/fa';
 import Link from 'next/link';
 
 const Navigation = () => {
-    const [hidden,setHidden]= useState(false)
+    const [hidden,setHidden]= useState(true)
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [visible, setVisible] = useState(true);
 

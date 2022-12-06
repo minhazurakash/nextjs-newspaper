@@ -1,6 +1,8 @@
 import React from 'react';
+import renderHTML from 'react-render-html';
 
-const PostDetails = () => {
+
+const PostDetails = ({news}) => {
     const des = `সিনেমার চরিত্রের জন্য তারকারা আলাদাভাবে নিজেদের তৈরি করেন। চরিত্রের জন্য কেউ ওজন বাড়ান তো কেউ ওজন কমান। অনেকে আবার ফাইট শেখেন, কারাতে শেখেন। কিন্তু সাংবাদিক চরিত্রের জন্য সাংবাদিকতা শিখতে শুনেছেন কি? হ্যাঁ, এমনটাই করেছেন বলিউড অভিনেত্রী ক্যাটরিনা কাইফ। ২০১৭ সালের ‘জগ্গা জাসুস’ ছবিতে সাংবাদিক চরিত্রে অভিনয় করেছেন ক্যাটরিনা কাইফ। এই চরিত্র দর্শকের সামনে ফুটিয়ে তুলতে সত্যিকারের সাংবাদিক হয়ে ওঠেন তিনি। এ জন্য তাঁকে কম পরিশ্রম করতে হয়নি। সম্প্রতি এক সাক্ষাৎকারে তিনি বলেছেন তাঁর সাংবাদিক হয়ে ওঠার গল্প।
     ক্যাটরিনা কাইফ ও রণবীর কাপুর
     ক্যাটরিনা কাইফ ও রণবীর কাপুরছবি:ইনস্টাগ্রাম
@@ -15,12 +17,15 @@ const PostDetails = () => {
     return (
         <div>
             <div className='py-4 border-t-2 border-b-2'>
-                <img className='w-full' src='https://images.prothomalo.com/prothomalo-bangla%2F2022-08%2F8e74a724-2fed-4389-9cd1-e83b7236affe%2F124156345_2783608135249714_6184068585405836214_n.jpg?rect=0%2C0%2C720%2C405&auto=format%2Ccompress&fmt=webp&format=webp&w=900&dpr=1.0' alt='post details images'/>
+                <img className='w-full' src={news?.image || 'https://images.prothomalo.com/prothomalo-bangla%2F2022-08%2F8e74a724-2fed-4389-9cd1-e83b7236affe%2F124156345_2783608135249714_6184068585405836214_n.jpg?rect=0%2C0%2C720%2C405&auto=format%2Ccompress&fmt=webp&format=webp&w=900&dpr=1.0'} alt='post details images'/>
             </div>
-            <div className='text-lg text-black leading-9'>
-               <p className=' text-justify'>
-                    {des}
-                </p>
+            <div className='text-lg text-black leading-9 mt-5'>
+               
+                    {news && renderHTML(news?.content) || <p className=' text-justify'>{des}</p>}
+                    {
+                        
+                    }
+                   
             </div>
         </div>
     );
