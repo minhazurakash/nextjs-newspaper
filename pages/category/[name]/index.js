@@ -3,7 +3,7 @@ import Hero from "../../../components/Hero";
 
 const CategoriesRoute = () => {
     return (
-        <div className="container">
+        <div className="container mx-auto  px-3 sm:px-0">
             <div className='flex justify-center my-5'>
                 <img src='https://tpc.googlesyndication.com/simgad/3217729136485671980' alt='ad images'/>
             </div>

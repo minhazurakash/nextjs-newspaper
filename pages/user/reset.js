@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Reset = () => {
     const handleReset =()=> {}
     return (
-        <div className="bg-base-200">
+        <div className="bg-base-200 container mx-auto  px-3 sm:px-0">
       <div class="items-center justify-center container mx-auto">
         <div class="hero-content h-screen items-center gap-48 flex-col lg:flex-row">
           <div class="text-center hidden lg:block ">

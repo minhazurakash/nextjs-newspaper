@@ -9,10 +9,10 @@ const Hero = () => {
                 <div className='lg:col-span-3'>
                     {/* news  */}
                     <div className='grid md:grid-cols-3 gap-5'>
-                        <div className='col-span-2'>
+                        <div className='md:col-span-2'>
                             <MainCard/>
                         </div>
-                        <div className='col-span-1'>
+                        <div className='md:col-span-1'>
                             <PortaitCard/>
                         </div>
                     </div>

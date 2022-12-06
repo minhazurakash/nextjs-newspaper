@@ -7,7 +7,7 @@ import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare, FaYoutubeSquare }
 
 const Footer = () => {
     return (
-        <div className='border-t-2'>
+        <div className='border-t-2 container mx-auto px-3 sm:px-0'>
             <div className='w-64 mx-auto md:mx-0'>
                 <img className='w-full' src={"https://images.prothomalo.com/prothomalo/import/default/2016/03/15/4d3620a7127d4a031a05a962fcc4b253-palo-logo.jpg"} alt='brand logo'/>
             </div>
@@ -79,12 +79,12 @@ const Footer = () => {
                     <div className='w-72 grid grid-cols-1 sm:grid-cols-2 gap-3'>
                         <Link href="/" className=' hover:scale-105 transition-all mx-auto'>
                             <div className='w-32'>
-                                <img className='w-full' src={google} alt='app download images'/>
+                                <img className='w-full' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2nVFb5ERqxTmokJuWafYhUZNY4JANV2aQcg&usqp=CAU" alt='app download images'/>
                             </div>
                         </Link>
                         <Link href="/" className=' hover:scale-105 transition-all mx-auto'>
                             <div className='w-32'>
-                                <img className='w-full' src={apple} alt='app download images'/>
+                                <img className='w-full' src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/2560px-Download_on_the_App_Store_Badge.svg.png" alt='app download images'/>
                             </div>
                         </Link>
                     </div>

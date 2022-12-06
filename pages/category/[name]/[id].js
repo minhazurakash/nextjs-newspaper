@@ -6,7 +6,7 @@ import RactangleCard from '../../../components/RactangleCard';
 import SectionHeader from '../../../components/SectionHeader';
 import SquareCard from '../../../components/SquareCard';
 import PostDetails from '../../../components/PostDetails';
-import {FacebookShareButton,FacebookIcon} from "react-share"
+import {FacebookShareButton,TwitterShareButton,WhatsappShareButton} from "react-share"
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
@@ -14,7 +14,7 @@ const PostDetailsRoute = () => {
     const router = useRouter()
     console.log(router.query);
     return (
-        <div className='container mx-auto my-5'>
+        <div className='container mx-auto my-5 px-3 sm:px-0'>
             <Head>
             <title>News Details page</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -35,18 +35,28 @@ const PostDetailsRoute = () => {
                             <h1 className='text-4xl text-black font-semibold'>যেভাবে ‘সাংবাদিক’ হয়েছিলেন ক্যাটরিনা</h1>
                             <div className='mt-8 flex justify-between items-center'>
                                 <div>
-                                    <p className='text-xs'>প্রকাশ: ০৪ ডিসেম্বর ২০২২, ২০: ০০</p>
+                                    <p className='text-sm'>প্রকাশ: ০৪ ডিসেম্বর ২০২২, ২০: ০০</p>
                                 </div>
+                                <div>
+                                    <h3 className='mb-2'>Share with friends</h3>
                                 <div className='flex gap-5'>
                                     <FacebookShareButton url={`https://akash-prothom-alo.vercel.app/category/${router.query.name}/${router.query.id}`} quote='Hello Developers!'>
                                         <div className='text-3xl hover:scale-105 transition-all text-blue-600'>
                                             <FaFacebookSquare/>
                                         </div>  
                                     </FacebookShareButton>
-                                    <div className='text-3xl hover:scale-105 transition-all text-blue-400'><FaTwitterSquare/></div>
-                                    <div className='text-3xl hover:scale-105 transition-all text-orange-400'><FaWhatsappSquare/></div>
-                                    <div className='text-3xl hover:scale-105 transition-all text-blue-600'><FaCopy/></div>
+                                    <TwitterShareButton url={`https://akash-prothom-alo.vercel.app/category/${router.query.name}/${router.query.id}`} quote='Hello Developers!'>
+                                        <div className='text-3xl hover:scale-105 transition-all text-blue-600'>
+                                            <FaTwitterSquare/>
+                                        </div>  
+                                    </TwitterShareButton>
+                                        <WhatsappShareButton url={`https://akash-prothom-alo.vercel.app/category/${router.query.name}/${router.query.id}`} quote='Hello Developers!'>
+                                        <div className='text-3xl hover:scale-105 transition-all text-blue-600'>
+                                            <FaWhatsappSquare/>
+                                        </div>  
+                                    </WhatsappShareButton>
                                     </div>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -6,7 +6,7 @@ import GoogleLogin from '../../components/GoogleLogin';
 const Login = () => {
     const handleLogin = () =>{}
     return (
-        <div className="bg-base-200">
+        <div className="bg-base-200 container mx-auto px-3 sm:px-0">
         <div class=" items-center container mx-auto">
           <div class="hero-content flex-col lg:flex-row">
             <div class="text-center hidden lg:block ">

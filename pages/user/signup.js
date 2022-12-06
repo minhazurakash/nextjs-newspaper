@@ -6,7 +6,7 @@ import GoogleLogin from '../../components/GoogleLogin';
 const Signup = () => {
     const handleSignIn = ()=>{}
     return (
-        <div className="bg-base-200">
+        <div className="bg-base-200 container mx-auto  px-3 sm:px-0">
       <div class="  container mx-auto">
         <div class="hero-content flex-col lg:flex-row-reverse justify-start">
           <div class="text-center hidden lg:block ">
