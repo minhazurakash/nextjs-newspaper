@@ -20,8 +20,6 @@ const PostDetailsRoute = () => {
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             <meta property="og:title" content="News Details Pagess" key="title" />
             <meta property="og:image" content="https://images.prothomalo.com/prothomalo-bangla%2F2022-08%2F8e74a724-2fed-4389-9cd1-e83b7236affe%2F124156345_2783608135249714_6184068585405836214_n.jpg?rect=0%2C0%2C720%2C405&auto=format%2Ccompress&fmt=webp&format=webp&w=900&dpr=1.0" key="image" itemProp='image'/>
-
-
             </Head>
             <div className='flex justify-center my-5'>
                 <img src='https://tpc.googlesyndication.com/simgad/3217729136485671980' alt='ad images'/>

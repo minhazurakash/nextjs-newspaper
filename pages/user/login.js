@@ -2,11 +2,18 @@ import React from 'react';
 import { FaAngleLeft } from 'react-icons/fa';
 import Link from 'next/link';
 import GoogleLogin from '../../components/GoogleLogin';
+import Head from 'next/head';
 
 const Login = () => {
     const handleLogin = () =>{}
     return (
         <div className="bg-base-200 container mx-auto px-3 sm:px-0">
+          <Head>
+            <title>Login -Prothom Alo</title>
+            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            <meta property="og:title" content="Login -Prothom Alo" key="title" />
+            <meta property="og:image" content="https://images.prothomalo.com/prothomalo/import/default/2016/03/15/4d3620a7127d4a031a05a962fcc4b253-palo-logo.jpg" key="image" itemProp='image'/>
+          </Head>
         <div class=" items-center container mx-auto">
           <div class="hero-content flex-col lg:flex-row">
             <div class="text-center hidden lg:block ">
