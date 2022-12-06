@@ -1,6 +1,7 @@
 import React from "react";
 import { FaAngleLeft } from "react-icons/fa";
 import Link from "next/link";
+import Head from "next/head";
 
 const ErrorElements = () => {
   return (
