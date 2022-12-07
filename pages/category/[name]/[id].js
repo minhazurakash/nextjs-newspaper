@@ -10,7 +10,7 @@ import {FacebookShareButton,TwitterShareButton,WhatsappShareButton} from "react-
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-const PostDetailsRoute = () => {
+const PostDetailsRoute = ({post}) => {
     const router = useRouter()
     const [news,setNews]=useState([])
     useEffect(()=>{
@@ -36,7 +36,7 @@ const PostDetailsRoute = () => {
                     <div className='py-5'>
                         <SectionHeader title={'category'} link="/category/abc"/>
                         <div>
-                            <h1 className='text-4xl text-black font-semibold'>{news && news[11]?.title || "যেভাবে ‘সাংবাদিক’ হয়েছিলেন ক্যাটরিনা"} </h1>
+                            <h1 className='text-4xl text-black font-semibold'>{post && post.news[11]?.title || "যেভাবে ‘সাংবাদিক’ হয়েছিলেন ক্যাটরিনা"} </h1>
                             <div className='mt-8 flex justify-between items-center'>
                                 <div>
                                     <p className='text-sm'>{news && news[11]?.datetime || "প্রকাশ: ০৪ ডিসেম্বর ২০২২, ২০: ০০"}</p>
@@ -102,3 +102,15 @@ const PostDetailsRoute = () => {
 };
 
 export default PostDetailsRoute;
+
+
+export async function getServerSideProps(){
+    const res = await fetch('https://mpnews24bd.com/api/news')
+    const data = await res.json()
+
+    return {
+        props:{
+            post:data
+        }
+    }
+}

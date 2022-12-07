@@ -8,7 +8,7 @@ import Head from 'next/head';
 
 
 
-const Home = () => {
+const Home = ({post}) => {
     
     return (
         <div className='container mx-auto px-3 sm:px-0'>
@@ -29,3 +29,4 @@ const Home = () => {
 };
 
 export default Home;
+
