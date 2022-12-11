@@ -16,14 +16,14 @@ function MyApp({ Component, pageProps }) {
       setLoading(false);
     });
   }, []);
-  console.log(loading);
-  if (loading) {
-    return <Spinner />;
-  }
+
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      {loading && <Spinner />}
+      <Layout loading={loading}>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   );
 }
 

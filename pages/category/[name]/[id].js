@@ -21,6 +21,7 @@ import { useRouter } from "next/router";
 
 const PostDetailsRoute = ({ post }) => {
   const router = useRouter();
+  console.log(post);
   //   const [news, setNews] = useState([]);
   //   useEffect(() => {
   //     fetch("https://mpnews24bd.com/api/news")
@@ -28,6 +29,7 @@ const PostDetailsRoute = ({ post }) => {
   //       .then((data) => setNews(data.news));
   //   }, []);
   //   console.log(news);
+
   return (
     <div className="container mx-auto my-5 px-3 sm:px-0">
       <Head>
@@ -54,13 +56,13 @@ const PostDetailsRoute = ({ post }) => {
             <SectionHeader title={"category"} link="/category/abc" />
             <div>
               <h1 className="text-4xl text-black font-semibold">
-                {(post && post.news[5]?.title) ||
+                {(post && post.data[0]?.title) ||
                   "যেভাবে ‘সাংবাদিক’ হয়েছিলেন ক্যাটরিনা"}{" "}
               </h1>
               <div className="mt-8 flex justify-between items-center">
                 <div>
                   <p className="text-sm">
-                    {(post && post?.news[5]?.datetime) ||
+                    {(post && post?.data[0]?.datetime) ||
                       "প্রকাশ: ০৪ ডিসেম্বর ২০২২, ২০: ০০"}
                   </p>
                 </div>
@@ -96,7 +98,7 @@ const PostDetailsRoute = ({ post }) => {
               </div>
             </div>
           </div>
-          <PostDetails news={post?.news[5]} />
+          <PostDetails news={post?.data[0]} />
           <div className="mt-10">
             <div>
               <h2 className="mb-4">আরও পড়ুন</h2>
@@ -143,7 +145,7 @@ const PostDetailsRoute = ({ post }) => {
 export default PostDetailsRoute;
 
 export async function getServerSideProps() {
-  const res = await fetch("https://mpnews24bd.com/api/news");
+  const res = await fetch("https://mpnews24bd.com/api/রাজনীতি/hubg1wZzi0");
   const data = await res.json();
 
   return {

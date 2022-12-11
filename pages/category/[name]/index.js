@@ -1,8 +1,6 @@
 import RactangleCard from "../../../components/RactangleCard";
 import Hero from "../../../components/Hero";
 import Head from "next/head";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
 const CategoriesRoute = () => {
   return (
@@ -46,3 +44,14 @@ const CategoriesRoute = () => {
 };
 
 export default CategoriesRoute;
+
+// export async function getServerSideProps() {
+//   const res = await fetch("https://mpnews24bd.com/api/রাজনীতি");
+//   const data = await res.json();
+
+//   return {
+//     props: {
+//       category: data,
+//     },
+//   };
+// }
