@@ -11,6 +11,7 @@ const Home = () => {
     <div className="container mx-auto px-3 sm:px-0">
       <Head>
         <title>Prothom Alo</title>
+
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta property="og:title" content="Prothom Alo" key="title" />
         <meta

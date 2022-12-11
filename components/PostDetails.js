@@ -6,7 +6,7 @@ const PostDetails = ({ news }) => {
   const news_key = news?.key;
   const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(false);
-  const comments = news.comments;
+  const comments = news?.comments;
   console.log(comments);
   const userComment = { news_key, name: "Akash", comment };
   const postComment = (e) => {

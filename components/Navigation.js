@@ -6,6 +6,7 @@ import { data } from "autoprefixer";
 
 const Navigation = () => {
   const [nav, setNav] = useState([]);
+  const [logo, setLogo] = useState("");
   const [hidden, setHidden] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -38,6 +39,10 @@ const Navigation = () => {
     fetch("https://mpnews24bd.com/api/menu")
       .then((res) => res.json())
       .then((data) => setNav(data?.menu));
+
+    fetch("https://mpnews24bd.com/api/website")
+      .then((res) => res.json())
+      .then((logo) => setLogo(logo.website.logo));
   }, []);
 
   return (
