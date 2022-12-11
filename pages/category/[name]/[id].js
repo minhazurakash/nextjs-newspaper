@@ -21,6 +21,7 @@ import { useRouter } from "next/router";
 
 const PostDetailsRoute = ({ post }) => {
   const router = useRouter();
+
   console.log(post);
   //   const [news, setNews] = useState([]);
   //   useEffect(() => {
@@ -53,7 +54,10 @@ const PostDetailsRoute = ({ post }) => {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 border-t-2">
         <div className="post-details w-full lg:col-span-3">
           <div className="py-5">
-            <SectionHeader title={"category"} link="/category/abc" />
+            <SectionHeader
+              title={router.query.name}
+              link={`/category/${router.query.name}`}
+            />
             <div>
               <h1 className="text-4xl text-black font-semibold">
                 {(post && post.data[0]?.title) ||
