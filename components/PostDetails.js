@@ -1,7 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import renderHTML from "react-render-html";
+import Spinner from "./Spinner";
 
 const PostDetails = ({ news }) => {
+  const news_key = news?.key;
+  const [comment, setComment] = useState("");
+  const [loading, setLoading] = useState(false);
+  const comments = news.comments;
+  console.log(comments);
+  const userComment = { news_key, name: "Akash", comment };
+  const postComment = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    fetch("https://mpnews24bd.com/api/comment/store", {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(userComment),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status) {
+          setLoading(false);
+          e.target.commentInput.value = "";
+          console.log("Yay comments done");
+          comments.push(userComment);
+        } else {
+          setLoading(false);
+          console.log("Ops comments error holo");
+        }
+      });
+  };
   const des = `সিনেমার চরিত্রের জন্য তারকারা আলাদাভাবে নিজেদের তৈরি করেন। চরিত্রের জন্য কেউ ওজন বাড়ান তো কেউ ওজন কমান। অনেকে আবার ফাইট শেখেন, কারাতে শেখেন। কিন্তু সাংবাদিক চরিত্রের জন্য সাংবাদিকতা শিখতে শুনেছেন কি? হ্যাঁ, এমনটাই করেছেন বলিউড অভিনেত্রী ক্যাটরিনা কাইফ। ২০১৭ সালের ‘জগ্গা জাসুস’ ছবিতে সাংবাদিক চরিত্রে অভিনয় করেছেন ক্যাটরিনা কাইফ। এই চরিত্র দর্শকের সামনে ফুটিয়ে তুলতে সত্যিকারের সাংবাদিক হয়ে ওঠেন তিনি। এ জন্য তাঁকে কম পরিশ্রম করতে হয়নি। সম্প্রতি এক সাক্ষাৎকারে তিনি বলেছেন তাঁর সাংবাদিক হয়ে ওঠার গল্প।
     ক্যাটরিনা কাইফ ও রণবীর কাপুর
     ক্যাটরিনা কাইফ ও রণবীর কাপুরছবি:ইনস্টাগ্রাম
@@ -13,6 +44,10 @@ const PostDetails = ({ news }) => {
     ‘জগ্গা জাসুস’ ছবিতে ক্যাটরিনা ও রণবীর কাপুর
     ‘জগ্গা জাসুস’ ছবিতে ক্যাটরিনা ও রণবীর কাপুর
     অভিনয়শিল্পীদের নতুন নতুন চরিত্রের জন্য প্রতিবারই নিজেদের প্রস্তুত করতে হয়। আর এই প্রস্তুতি নিতে হয় দর্শকের সামনে চরিত্রটি ফুটিয়ে তোলার জন্য। যিনি যত বেশি পরিশ্রম করেন, দর্শকের কাছে তিনি তত বেশি জনপ্রিয় হয়ে ওঠেন। ‘জগ্গা জাসুস’ ছবিতে ক্যাটরিনার শ্রুতি চরিত্রটাও তখন প্রশংসিত হয়েছিল। এই অভিনেত্রী এখন নতুন ছবি ‘মেরি ক্রিসমাস’–এর জন্য প্রস্তুত হচ্ছেন। আগামী বছর ছবিটি মুক্তি পাবে। এই ছবিতে দক্ষিণি অভিনেতা বিজয় সেতুপতির বিপরীতে তাঁকে দেখা যাবে। কিছুদিন আগে মুক্তি পেয়েছিল ক্যাটরিনা অভিনীত ছবি ‘ফোন ভূত’। ছবিটি বক্স অফিসে তেমন সাড়া ফেলতে পারেনি।`;
+
+  // if (loading) {
+  //   return <Spinner />;
+  // }
   return (
     <div>
       <div className="w-full py-4 border-t-2 border-b-2">
@@ -29,7 +64,45 @@ const PostDetails = ({ news }) => {
         {(news && renderHTML(news?.content)) || (
           <p className=" text-justify">{des}</p>
         )}
-        {}
+      </div>
+      <div className="my-14">
+        <div className="border-b-2 border-t-2 py-5 mb-5">
+          <h3 className="text-2xl pl-5">মন্তব্য করুন</h3>
+        </div>
+        <div className="md:w-[500px]">
+          <div className="flex gap-5 items-start">
+            <div className="w-14 h-12 rounded-full  bg-black"></div>
+            <div className="w-full">
+              <form onSubmit={postComment}>
+                <input
+                  name="commentInput"
+                  className="input w-full input-accent"
+                  type="text"
+                  onChange={(e) => setComment(e.target.value)}
+                />
+                <div className="flex justify-end mt-3">
+                  <button className="btn btn-accent rounded-sm btn-sm">
+                    Post
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        {news?.comments &&
+          news?.comments.reverse().map((item) => {
+            return (
+              <div className="flex gap-5 items-start my-5">
+                <div className="w-10 h-9 rounded-full  bg-black"></div>
+                <div className="w-full">
+                  <h2>{item?.name}</h2>
+                  <p>{item?.comment}</p>
+                </div>
+              </div>
+            );
+          })}
       </div>
     </div>
   );
