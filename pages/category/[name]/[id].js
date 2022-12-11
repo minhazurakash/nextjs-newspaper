@@ -50,8 +50,8 @@ const PostDetailsRoute = ({ post }) => {
         />
       </div>
       {/* post details */}
-      <div className="grid md:flex gap-10 border-t-2">
-        <div className="post-details w-full">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 border-t-2">
+        <div className="post-details w-full lg:col-span-3">
           <div className="py-5">
             <SectionHeader title={"category"} link="/category/abc" />
             <div>
@@ -109,7 +109,7 @@ const PostDetailsRoute = ({ post }) => {
             </div>
           </div>
         </div>
-        <div className="md:w-96 custom-border">
+        <div className="lg:col-span-1 custom-border">
           <div className="grid gap-5 my-5">
             <img
               className="w-full"
@@ -122,10 +122,12 @@ const PostDetailsRoute = ({ post }) => {
               alt=""
             />
           </div>
-          <MixCard />
-          <MixCard />
-          <MixCard />
-          <MixCard />
+          <div className="grid md:grid-cols-2 gap-8 lg:grid-cols-1">
+            <MixCard />
+            <MixCard />
+            <MixCard />
+            <MixCard />
+          </div>
         </div>
       </div>
 
