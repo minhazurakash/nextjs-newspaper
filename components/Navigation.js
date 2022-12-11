@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import logo from "../assests/Prothom-Alo-logo.jpg";
 import { FaBars, FaSearch } from "react-icons/fa";
 import Link from "next/link";
+import { data } from "autoprefixer";
 
 const Navigation = () => {
+  const [nav, setNav] = useState([]);
   const [hidden, setHidden] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -31,6 +33,12 @@ const Navigation = () => {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos, visible, handleScroll]);
+
+  useEffect(() => {
+    fetch("https://mpnews24bd.com/api/menu")
+      .then((res) => res.json())
+      .then((data) => setNav(data?.menu));
+  }, []);
 
   return (
     <div
@@ -75,15 +83,19 @@ const Navigation = () => {
       <div
         className={`${
           hidden ? "hidden" : "block"
-        } md:block py-3 border-t-2 flex flex-wrap gap-5 justify-center`}
+        } md:block py-3 border-t-2 flex flex-wrap gap-5 justify-center min-h-[50px]`}
       >
         <ul className="px-5 grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap md:justify-center gap-5">
-          <li>
-            <Link href="/category/home" legacyBehavior>
-              <a className="hover:text-blue-500">Home</a>
-            </Link>
-          </li>
-          <li>
+          {nav.map((item) => {
+            return (
+              <li>
+                <Link href={`/category/${item?.name}`} legacyBehavior>
+                  <a className="hover:text-blue-500">{item?.name}</a>
+                </Link>
+              </li>
+            );
+          })}
+          {/* <li>
             <Link href="/category/aksh" legacyBehavior>
               <a className="hover:text-blue-500">Life-style</a>
             </Link>
@@ -107,7 +119,7 @@ const Navigation = () => {
             <Link href="/category/aksh" legacyBehavior>
               <a className="hover:text-blue-500">Sports</a>
             </Link>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>

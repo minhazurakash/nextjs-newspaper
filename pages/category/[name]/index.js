@@ -1,8 +1,11 @@
 import RactangleCard from "../../../components/RactangleCard";
 import Hero from "../../../components/Hero";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
-const CategoriesRoute = () => {
+const CategoriesRoute = ({ news }) => {
+  const router = useRouter();
+  console.log(router.query);
   return (
     <div className="container mx-auto  px-3 sm:px-0">
       <Head>
@@ -23,7 +26,7 @@ const CategoriesRoute = () => {
         />
       </div>
       {/* news and ad  */}
-      <Hero />
+      <Hero news={news?.news[0]} />
       <div className="flex justify-center my-5">
         <img
           src="https://tpc.googlesyndication.com/simgad/17825197492991032054"
@@ -45,13 +48,13 @@ const CategoriesRoute = () => {
 
 export default CategoriesRoute;
 
-// export async function getServerSideProps() {
-//   const res = await fetch("https://mpnews24bd.com/api/রাজনীতি");
-//   const data = await res.json();
+export async function getServerSideProps({ query }) {
+  const res = await fetch(`https://mpnews24bd.com/api/category/${query.name}`);
+  const news = await res.json();
 
-//   return {
-//     props: {
-//       category: data,
-//     },
-//   };
-// }
+  return {
+    props: {
+      news: news,
+    },
+  };
+}

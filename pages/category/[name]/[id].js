@@ -144,8 +144,11 @@ const PostDetailsRoute = ({ post }) => {
 
 export default PostDetailsRoute;
 
-export async function getServerSideProps() {
-  const res = await fetch("https://mpnews24bd.com/api/রাজনীতি/hubg1wZzi0");
+export async function getServerSideProps({ query }) {
+  console.log(query);
+  const res = await fetch(
+    `https://mpnews24bd.com/api/category/${query.name}/${query.id}`
+  );
   const data = await res.json();
 
   return {
