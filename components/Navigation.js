@@ -59,7 +59,7 @@ const Navigation = () => {
           <h5 className="text-xs">মঙ্গলবার, ০৬ ডিসেম্বর ২০২২</h5> */}
         </div>
         <div className="w-1/3 block md:hidden">
-          <div className="">
+          <div className="block">
             <FaBars
               onClick={() => setHidden(!hidden)}
               className="text-xl cursor-pointer"
