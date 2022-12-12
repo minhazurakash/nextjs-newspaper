@@ -93,7 +93,7 @@ const Navigation = () => {
         <ul className="px-5 grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap md:justify-center gap-5">
           {nav.map((item) => {
             return (
-              <li>
+              <li key={item.key}>
                 <Link href={`/category/${item?.name}`} legacyBehavior>
                   <a className="hover:text-blue-500">{item?.name}</a>
                 </Link>

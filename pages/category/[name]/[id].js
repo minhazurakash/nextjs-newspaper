@@ -44,9 +44,10 @@ const PostDetailsRoute = ({ post }) => {
           itemProp="image"
         />
       </Head>
-      <div className="flex justify-center my-5">
+      <div className="flex justify-center my-5 h-28 w-full">
         <img
-          src="https://tpc.googlesyndication.com/simgad/3217729136485671980"
+          className="w-full object-cover object-center"
+          src="https://www.famap.com.ng/wp-content/uploads/2017/11/advertise.jpg"
           alt="ad images"
         />
       </div>
@@ -117,12 +118,12 @@ const PostDetailsRoute = ({ post }) => {
           <div className="grid gap-5 my-5">
             <img
               className="w-full"
-              src="https://tpc.googlesyndication.com/simgad/6035381064038992771"
+              src="https://www.infomogli.com/assets/images/ads(450-x-450).png"
               alt=""
             />
             <img
               className="w-full"
-              src="https://tpc.googlesyndication.com/simgad/6035381064038992771"
+              src="https://www.infomogli.com/assets/images/ads(450-x-450).png"
               alt=""
             />
           </div>

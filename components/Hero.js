@@ -26,7 +26,7 @@ const Hero = ({ news }) => {
         <div className="mb-5">
           <img
             className="w-full"
-            src="https://tpc.googlesyndication.com/simgad/6035381064038992771"
+            src="https://www.infomogli.com/assets/images/ads(450-x-450).png"
             alt=""
           />
         </div>

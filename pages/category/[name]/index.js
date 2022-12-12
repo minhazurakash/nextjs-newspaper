@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 const CategoriesRoute = ({ news }) => {
   const router = useRouter();
-  console.log(router.query);
+  console.log(news);
   return (
     <div className="container mx-auto  px-3 sm:px-0">
       <Head>
@@ -19,9 +19,10 @@ const CategoriesRoute = ({ news }) => {
           itemProp="image"
         />
       </Head>
-      <div className="flex justify-center my-5">
+      <div className="flex justify-center my-5 h-28 w-full">
         <img
-          src="https://tpc.googlesyndication.com/simgad/3217729136485671980"
+          className="w-full object-cover object-center"
+          src="https://www.famap.com.ng/wp-content/uploads/2017/11/advertise.jpg"
           alt="ad images"
         />
       </div>
@@ -29,7 +30,7 @@ const CategoriesRoute = ({ news }) => {
       <Hero news={news?.news[0]} />
       <div className="flex justify-center my-5">
         <img
-          src="https://tpc.googlesyndication.com/simgad/17825197492991032054"
+          src="https://www.famap.com.ng/wp-content/uploads/2017/11/advertise.jpg"
           alt=""
         />
       </div>
