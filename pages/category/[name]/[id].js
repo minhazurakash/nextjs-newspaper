@@ -23,23 +23,23 @@ const PostDetailsRoute = ({ post }) => {
   const router = useRouter();
 
   console.log(post);
-  //   const [news, setNews] = useState([]);
-  //   useEffect(() => {
-  //     fetch("https://mpnews24bd.com/api/news")
-  //       .then((res) => res.json())
-  //       .then((data) => setNews(data.news));
-  //   }, []);
-  //   console.log(news);
+  const [news, setNews] = useState([]);
+  useEffect(() => {
+    fetch(`https://mpnews24bd.com/api/category/${router.query.name}`)
+      .then((res) => res.json())
+      .then((data) => setNews(data.news));
+  }, []);
+  console.log(news);
 
   return (
     <div className="container mx-auto my-5 px-3 sm:px-0">
       <Head>
-        <title>{post.data[0]?.title || "News Details page"}</title>
+        <title>{post?.data[0]?.title || "News Details page"}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta property="og:title" content={post.data[0]?.title} key="title" />
+        <meta property="og:title" content={post?.data[0]?.title} key="title" />
         <meta
           property="og:image"
-          content="https://images.prothomalo.com/prothomalo-bangla%2F2022-08%2F8e74a724-2fed-4389-9cd1-e83b7236affe%2F124156345_2783608135249714_6184068585405836214_n.jpg?rect=0%2C0%2C720%2C405&auto=format%2Ccompress&fmt=webp&format=webp&w=900&dpr=1.0"
+          content={post?.data[0]?.image}
           key="image"
           itemProp="image"
         />
@@ -61,14 +61,12 @@ const PostDetailsRoute = ({ post }) => {
             />
             <div>
               <h1 className="text-4xl text-black font-semibold">
-                {(post && post.data[0]?.title) ||
-                  "যেভাবে ‘সাংবাদিক’ হয়েছিলেন ক্যাটরিনা"}{" "}
+                {(post && post.data[0]?.title) || "Invalid News title"}
               </h1>
               <div className="mt-8 flex justify-between items-center">
                 <div>
                   <p className="text-sm">
-                    {(post && post?.data[0]?.datetime) ||
-                      "প্রকাশ: ০৪ ডিসেম্বর ২০২২, ২০: ০০"}
+                    {(post && post?.data[0]?.datetime) || "infinity hours ago"}
                   </p>
                 </div>
                 <div>
@@ -108,8 +106,8 @@ const PostDetailsRoute = ({ post }) => {
             <div>
               <h2 className="mb-4">আরও পড়ুন</h2>
               <div className="grid sm:grid-cols-2 gap-5">
-                <RactangleCard />
-                <RactangleCard />
+                <RactangleCard news={news[0]} />
+                <RactangleCard news={news[1]} />
               </div>
             </div>
           </div>
@@ -128,10 +126,10 @@ const PostDetailsRoute = ({ post }) => {
             />
           </div>
           <div className="grid md:grid-cols-2 gap-8 lg:grid-cols-1">
-            <MixCard />
-            <MixCard />
-            <MixCard />
-            <MixCard />
+            <MixCard news={news[2]} />
+            <MixCard news={news[3]} />
+            <MixCard news={news[4]} />
+            <MixCard news={news[5]} />
           </div>
         </div>
       </div>
@@ -139,10 +137,10 @@ const PostDetailsRoute = ({ post }) => {
       <div className="mt-10">
         <h2 className="mb-4">আরও পড়ুন</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
-          <SquareCard />
-          <SquareCard />
-          <SquareCard />
-          <SquareCard />
+          <SquareCard news={news[6]} />
+          <SquareCard news={news[7]} />
+          <SquareCard news={news[8]} />
+          <SquareCard news={news[9]} />
         </div>
       </div>
     </div>

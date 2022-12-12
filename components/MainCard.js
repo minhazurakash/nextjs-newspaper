@@ -6,9 +6,9 @@ const MainCard = ({ link = "/category/school/id", news }) => {
   return (
     <>
       <Link href={`/category/${news?.category_name}/${news?.key}`}>
-        <div className="w-full max-h-[450px] relative custom-card overflow-hidden">
+        <div className="w-full md:max-h-[450px] md:min-h-[450px] relative custom-card overflow-hidden">
           <img
-            className="w-full object-center object-cover transition-all"
+            className="w-full object-center object-cover transition-all h-full"
             src={
               news?.image ||
               "https://images.prothomalo.com/prothomalo-bangla%2F2022-12%2Fe4441a45-5676-4d7d-a39c-70cbfbf057ab%2Ff6db3a52-faa7-43ed-90d3-05998319121a.jpg?rect=59%2C0%2C633%2C422&auto=format%2Ccompress&fmt=webp&format=webp&dpr=1.0&q=70&w=300"

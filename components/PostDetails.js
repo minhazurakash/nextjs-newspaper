@@ -53,10 +53,7 @@ const PostDetails = ({ news }) => {
       <div className="w-full py-4 border-t-2 border-b-2">
         <img
           className="w-full"
-          src={
-            news?.image ||
-            "https://images.prothomalo.com/prothomalo-bangla%2F2022-08%2F8e74a724-2fed-4389-9cd1-e83b7236affe%2F124156345_2783608135249714_6184068585405836214_n.jpg?rect=0%2C0%2C720%2C405&auto=format%2Ccompress&fmt=webp&format=webp&w=900&dpr=1.0"
-          }
+          src={news?.image || "https://bpptik.kominfo.go.id/no_image.jpg"}
           alt="post details images"
         />
       </div>
@@ -71,7 +68,12 @@ const PostDetails = ({ news }) => {
         </div>
         <div className="md:w-[500px]">
           <div className="flex gap-5 items-start">
-            <div className="w-14 h-12 rounded-full  bg-black"></div>
+            <div className="w-14 h-12 rounded-full">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFnG0huY6whcqQtmgJDP7XgSb8VCpmLUnKXw&usqp=CAU"
+                alt="img"
+              />
+            </div>
             <div className="w-full">
               <form onSubmit={postComment}>
                 <input
@@ -92,10 +94,15 @@ const PostDetails = ({ news }) => {
       </div>
       <div>
         {news?.comments &&
-          news?.comments.reverse().map((item) => {
+          news?.comments.map((item) => {
             return (
               <div className="flex gap-5 items-start my-5">
-                <div className="w-10 h-9 rounded-full  bg-black"></div>
+                <div className="w-10 h-9 rounded-full">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFnG0huY6whcqQtmgJDP7XgSb8VCpmLUnKXw&usqp=CAU"
+                    alt="img"
+                  />
+                </div>
                 <div className="w-full">
                   <h2>{item?.name}</h2>
                   <p>{item?.comment}</p>

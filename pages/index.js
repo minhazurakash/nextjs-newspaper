@@ -6,7 +6,7 @@ import WorldSection from "../components/section/WorldSection";
 import CatagorieSection from "../components/section/CatagorieSection";
 import Head from "next/head";
 
-const Home = () => {
+const Home = ({ news }) => {
   return (
     <div className="container mx-auto px-3 sm:px-0">
       <Head>
@@ -21,7 +21,7 @@ const Home = () => {
           itemProp="image"
         />
       </Head>
-      <Hero />
+      <Hero news={news?.news} />
       <EntertainmentSection />
       <LifeStyleSection />
       <WorldSection />
@@ -32,3 +32,15 @@ const Home = () => {
 };
 
 export default Home;
+
+export async function getServerSideProps({ query }) {
+  console.log(query);
+  const res = await fetch(`https://mpnews24bd.com/api/leatest-news`);
+  const data = await res.json();
+
+  return {
+    props: {
+      news: data,
+    },
+  };
+}

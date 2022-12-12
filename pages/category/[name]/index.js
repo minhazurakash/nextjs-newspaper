@@ -2,10 +2,17 @@ import RactangleCard from "../../../components/RactangleCard";
 import Hero from "../../../components/Hero";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const CategoriesRoute = ({ news }) => {
   const router = useRouter();
-  console.log(news);
+  const [limit, setLimit] = useState(15);
+  const moreNews = news?.news.slice(10, limit);
+  useEffect(() => {
+    router.events.on("routeChangeComplete", () => {
+      setLimit(15);
+    });
+  }, []);
   return (
     <div className="container mx-auto  px-3 sm:px-0">
       <Head>
@@ -27,7 +34,7 @@ const CategoriesRoute = ({ news }) => {
         />
       </div>
       {/* news and ad  */}
-      <Hero news={news?.news[0]} />
+      <Hero news={news?.news} />
       <div className="flex justify-center my-5">
         <img
           src="https://www.famap.com.ng/wp-content/uploads/2017/11/advertise.jpg"
@@ -35,13 +42,16 @@ const CategoriesRoute = ({ news }) => {
         />
       </div>
       <div className="custom-border sm:w-[500px] mx-auto my-10">
-        <RactangleCard />
-        <RactangleCard />
-        <RactangleCard />
-        <RactangleCard />
-        <div className="text-center">
-          <button className="btn btn-xs">Load more ...</button>
-        </div>
+        {moreNews?.map((item) => {
+          return <RactangleCard news={item} key={item.key} />;
+        })}
+        {limit < news?.news.length && (
+          <div className="text-center">
+            <button onClick={() => setLimit(limit + 5)} className="btn btn-xs">
+              Load more ...
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
