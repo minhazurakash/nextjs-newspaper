@@ -5,8 +5,16 @@ import LifeStyleSection from "../components/section/LifeStyleSection";
 import WorldSection from "../components/section/WorldSection";
 import CatagorieSection from "../components/section/CatagorieSection";
 import Head from "next/head";
+import { useEffect, useState } from "react";
 
 const Home = ({ news }) => {
+  const [category, setCategory] = useState([]);
+  useEffect(() => {
+    fetch(`https://mpnews24bd.com/api/category`)
+      .then((res) => res.json())
+      .then((data) => setCategory(data?.data));
+  }, []);
+  console.log(category);
   return (
     <div className="container mx-auto px-3 sm:px-0">
       <Head>
@@ -22,11 +30,11 @@ const Home = ({ news }) => {
         />
       </Head>
       <Hero news={news?.news} />
-      <EntertainmentSection />
-      <LifeStyleSection />
-      <WorldSection />
-      <BusinessSection />
-      <CatagorieSection />
+      <EntertainmentSection news={category[0]} />
+      <LifeStyleSection news={category[1]} />
+      <WorldSection news={category[2]} />
+      <BusinessSection news={category[3]} />
+      <CatagorieSection news={category} />
     </div>
   );
 };

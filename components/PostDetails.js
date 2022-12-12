@@ -8,7 +8,7 @@ const PostDetails = ({ news }) => {
   const [loading, setLoading] = useState(false);
   const comments = news?.comments;
   console.log(comments);
-  const userComment = { news_key, name: "Akash", comment };
+  const userComment = { news_key, name: "Unknown", comment };
   const postComment = (e) => {
     e.preventDefault();
     setLoading(true);

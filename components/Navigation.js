@@ -52,11 +52,11 @@ const Navigation = () => {
     >
       <div className="container mx-auto h-28 flex justify-between items-center">
         <div className="w-1/3 hidden md:block">
-          <div className="flex gap-3 items-center mb-3">
+          {/* <div className="flex gap-3 items-center mb-3">
             <input className="input input-xs bg-transparent input-secondary rounded-none focus:outline-none" />
             <FaSearch className="text-xl cursor-pointer" />
           </div>
-          <h5 className="text-xs">মঙ্গলবার, ০৬ ডিসেম্বর ২০২২</h5>
+          <h5 className="text-xs">মঙ্গলবার, ০৬ ডিসেম্বর ২০২২</h5> */}
         </div>
         <div className="w-1/3 block md:hidden">
           <div className="">
@@ -78,11 +78,11 @@ const Navigation = () => {
           </Link>
         </div>
         <div className="w-1/3 text-right">
-          <Link href="/user/login">
+          {/* <Link href="/user/login">
             <button className="btn btn-sm rounded-none border bg-transparent text-blue-500">
               Login
             </button>
-          </Link>
+          </Link> */}
         </div>
       </div>
       <div

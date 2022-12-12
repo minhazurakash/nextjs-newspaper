@@ -8,7 +8,7 @@ const RactangleCard = ({ news }) => {
         <div className={`flex justify-between`}>
           <div className="w-full">
             <h2 className="text-md lg:text-xl font-semibold transition-all">
-              {news?.title.slice(0, 80) + " ..."}
+              {news?.title?.slice(0, 80) + " ..."}
             </h2>
             <div className="footer mt-4 text-gray-500">
               <p>{news?.datetime}</p>

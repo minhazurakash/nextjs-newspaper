@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 
 const MainCard = ({ link = "/category/school/id", news }) => {
-  console.log(news);
   return (
     <>
       <Link href={`/category/${news?.category_name}/${news?.key}`}>
