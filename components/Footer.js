@@ -12,10 +12,15 @@ import {
 
 const Footer = () => {
   const [logo, setLogo] = useState("");
+  const [nav, setNav] = useState([]);
   useEffect(() => {
     fetch("https://mpnews24bd.com/api/website")
       .then((res) => res.json())
       .then((logo) => setLogo(logo.website.logo));
+
+    fetch("https://mpnews24bd.com/api/menu")
+      .then((res) => res.json())
+      .then((data) => setNav(data?.menu));
   }, []);
   return (
     <div className="border-t-2 container mx-auto px-3 sm:px-0">
@@ -23,57 +28,14 @@ const Footer = () => {
         <img className="w-full" src={logo} alt="brand logo" />
       </div>
       <div className="flex flex-wrap justify-center md:grid md:grid-cols-4 lg:grid-cols-6  gap-5 border-b-2 my-5 pb-5">
-        <div className="hover:text-blue-600 text-md cursor-pointer">
-          <Link href="/">চাকরি</Link>
-        </div>
-        <div className="hover:text-blue-600 text-md cursor-pointer">
-          <Link href="/">গোলটেবিল</Link>
-        </div>
-        <div className="hover:text-blue-600 text-md cursor-pointer">
-          <Link href="/">বিশেষ সংখ্যা</Link>
-        </div>
-        <div className="hover:text-blue-600 text-md cursor-pointer">
-          <Link href="/">চাকরি</Link>
-        </div>
-        <div className="hover:text-blue-600 text-md cursor-pointer">
-          <Link href="/">গোলটেবিল</Link>
-        </div>
-        <div className="hover:text-blue-600 text-md cursor-pointer">
-          <Link href="/">বিশেষ সংখ্যা</Link>
-        </div>
-        <div className="hover:text-blue-600 text-md cursor-pointer">
-          <Link href="/">চাকরি</Link>
-        </div>
-        <div className="hover:text-blue-600 text-md cursor-pointer">
-          <Link href="/">গোলটেবিল</Link>
-        </div>
-        <div className="hover:text-blue-600 text-md cursor-pointer">
-          <Link href="/">বিশেষ সংখ্যা</Link>
-        </div>
-        <div className="hover:text-blue-600 text-md cursor-pointer">
-          <Link href="/">চাকরি</Link>
-        </div>
-        <div className="hover:text-blue-600 text-md cursor-pointer">
-          <Link href="/">গোলটেবিল</Link>
-        </div>
-        <div className="hover:text-blue-600 text-md cursor-pointer">
-          <Link href="/">বিশেষ সংখ্যা</Link>
-        </div>
-        <div className="hover:text-blue-600 text-md cursor-pointer">
-          <Link href="/">চাকরি</Link>
-        </div>
-        <div className="hover:text-blue-600 text-md cursor-pointer">
-          <Link href="/">গোলটেবিল</Link>
-        </div>
-        <div className="hover:text-blue-600 text-md cursor-pointer">
-          <Link href="/">বিশেষ সংখ্যা</Link>
-        </div>
-        <div className="hover:text-blue-600 text-md cursor-pointer">
-          <Link href="/">চাকরি</Link>
-        </div>
-        <div className="hover:text-blue-600 text-md cursor-pointer">
-          <Link href="/">গোলটেবিল</Link>
-        </div>
+        {nav &&
+          nav?.map((item) => {
+            return (
+              <div className="hover:text-blue-600 text-md cursor-pointer">
+                <Link href={`/category/${item?.name}`}>{item?.name}</Link>
+              </div>
+            );
+          })}
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 justify-between border-b-2 pb-5">
         <div className="mx-auto">
