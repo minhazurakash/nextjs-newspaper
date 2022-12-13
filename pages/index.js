@@ -12,8 +12,9 @@ const Home = ({ news }) => {
   useEffect(() => {
     fetch(`https://mpnews24bd.com/api/category`)
       .then((res) => res.json())
-      .then((data) => setCategory(data));
+      .then((data) => setCategory(data?.data));
   }, []);
+  console.log(category);
 
   return (
     <div className="container mx-auto px-3 sm:px-0">

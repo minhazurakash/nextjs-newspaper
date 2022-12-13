@@ -4,7 +4,6 @@ import RactangleCard from "../RactangleCard";
 import SectionHeader from "../SectionHeader";
 
 const EntertainmentSection = ({ news }) => {
-  console.log(news);
   return (
     <>
       <div className="entertainment">
