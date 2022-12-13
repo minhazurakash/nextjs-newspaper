@@ -10,6 +10,10 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+.right-shadow {
+  box-shadow: 0 10px 13px 2px rgb(0 20 0 / 50%);
+}
+
 /* Loader animation  */
 @keyframes ldio-9vgzudbxn8h-1 {
   0% {
