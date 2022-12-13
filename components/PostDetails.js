@@ -4,13 +4,15 @@ import Spinner from "./Spinner";
 
 const PostDetails = ({ news }) => {
   const news_key = news?.key;
-  const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(false);
   const comments = news?.comments;
   console.log(comments);
-  const userComment = { news_key, name: "Unknown", comment };
   const postComment = (e) => {
     e.preventDefault();
+    let name = e.target.name.value;
+    let comment = e.target.comment.value;
+    const userComment = { news_key, name, comment };
+
     setLoading(true);
     fetch("https://mpnews24bd.com/api/comment/store", {
       headers: {
@@ -24,12 +26,11 @@ const PostDetails = ({ news }) => {
       .then((data) => {
         if (data.status) {
           setLoading(false);
-          e.target.commentInput.value = "";
-          console.log("Yay comments done");
           comments.push(userComment);
+          e.target.name.value = "";
+          e.target.comment.value = "";
         } else {
           setLoading(false);
-          console.log("Ops comments error holo");
         }
       });
   };
@@ -77,10 +78,14 @@ const PostDetails = ({ news }) => {
             <div className="w-full">
               <form onSubmit={postComment}>
                 <input
-                  name="commentInput"
-                  className="input w-full input-accent"
+                  name="name"
+                  className="input mb-5 w-full input-primary"
                   type="text"
-                  onChange={(e) => setComment(e.target.value)}
+                />
+                <textarea
+                  name="comment"
+                  className="textarea w-full input-accent"
+                  type="text"
                 />
                 <div className="flex justify-end mt-3">
                   <button className="btn btn-accent rounded-sm btn-sm">
@@ -104,7 +109,9 @@ const PostDetails = ({ news }) => {
                   />
                 </div>
                 <div className="w-full">
-                  <h2>{item?.name}</h2>
+                  <h2 className="text-xl font-bold text-blue-500">
+                    {item?.name}
+                  </h2>
                   <p>{item?.comment}</p>
                 </div>
               </div>
