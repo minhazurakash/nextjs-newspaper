@@ -94,7 +94,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="my-8 text-center">
-        <p>স্বত্ব © ২০২২ প্রথম আলো সম্পাদক ও প্রকাশক: মতিউর রহমান</p>
+        <p>স্বত্ব © ২০২২ mpnews24bd || Developed ❤️ Anik & Akash</p>
       </div>
     </div>
   );
