@@ -3,8 +3,10 @@ import logo from "../assests/Prothom-Alo-logo.jpg";
 import { FaBars, FaSearch } from "react-icons/fa";
 import Link from "next/link";
 import { data } from "autoprefixer";
+import { useRouter } from "next/router";
 
 const Navigation = () => {
+  const router = useRouter();
   const [nav, setNav] = useState([]);
   const [logo, setLogo] = useState("");
   const [hidden, setHidden] = useState(true);
@@ -43,6 +45,10 @@ const Navigation = () => {
     fetch("https://mpnews24bd.com/api/website")
       .then((res) => res.json())
       .then((logo) => setLogo(logo.website.logo));
+
+    router.events.on("routeChangeComplete", () => {
+      setHidden(true);
+    });
   }, []);
   return (
     <div
@@ -81,7 +87,7 @@ const Navigation = () => {
       <div
         className={`${
           hidden ? "hidden" : "block"
-        } md:block py-3 border-t-2 flex flex-wrap gap-5 justify-center min-h-[50px]`}
+        } md:block py-3 border-t-2 flex flex-wrap gap-5 justify-center min-h-[50px] transition-all`}
       >
         <ul className="px-5 grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap md:justify-center gap-5">
           {nav.map((item) => {
