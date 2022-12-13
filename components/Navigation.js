@@ -44,7 +44,6 @@ const Navigation = () => {
       .then((res) => res.json())
       .then((logo) => setLogo(logo.website.logo));
   }, []);
-
   return (
     <div
       style={{ top: visible ? "0" : "-113px" }}
@@ -68,13 +67,7 @@ const Navigation = () => {
         </div>
         <div className="w-1/3 flex justify-center items-center h-full">
           <Link href="/">
-            <img
-              className="w-48"
-              src={
-                "https://images.prothomalo.com/prothomalo/import/default/2016/03/15/4d3620a7127d4a031a05a962fcc4b253-palo-logo.jpg"
-              }
-              alt=""
-            />
+            <img className="w-48" src={logo} alt="" />
           </Link>
         </div>
         <div className="w-1/3 text-right">

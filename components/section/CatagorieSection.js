@@ -47,39 +47,39 @@ const CatagorieSection = ({ news }) => {
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-16">
         <div className="custom-border">
           <SectionHeader
-            title={news[0]?.name}
+            title={news[4]?.name}
             link={`/category/${news?.name}`}
           />
-          <SquareCard news={news[0]?.news[0]} />
-          <TextCard news={news[0]?.news[1]} />
-          <TextCard news={news[0]?.news[2]} />
+          <SquareCard news={news[4]?.news[0]} />
+          <TextCard news={news[4]?.news[1]} />
+          <TextCard news={news[4]?.news[2]} />
         </div>
         <div className="custom-border">
           <SectionHeader
-            title={news[1]?.name}
+            title={news[5]?.name}
             link={`/category/${news?.name}`}
           />
-          <SquareCard news={news[1]?.news[0]} />
-          <TextCard news={news[1]?.news[1]} />
-          <TextCard news={news[1]?.news[2]} />
+          <SquareCard news={news[5]?.news[0]} />
+          <TextCard news={news[5]?.news[1]} />
+          <TextCard news={news[5]?.news[2]} />
         </div>
         <div className="custom-border">
           <SectionHeader
-            title={news[2]?.name}
+            title={news[6]?.name}
             link={`/category/${news?.name}`}
           />
-          <SquareCard news={news[2]?.news[0]} />
-          <TextCard news={news[2]?.news[1]} />
-          <TextCard news={news[2]?.news[2]} />
+          <SquareCard news={news[6]?.news[0]} />
+          <TextCard news={news[6]?.news[1]} />
+          <TextCard news={news[6]?.news[2]} />
         </div>
         <div className="custom-border">
           <SectionHeader
-            title={news[3]?.name}
+            title={news[7]?.name}
             link={`/category/${news?.name}`}
           />
-          <SquareCard news={news[3]?.news[0]} />
-          <TextCard news={news[3]?.news[1]} />
-          <TextCard news={news[3]?.news[2]} />
+          <SquareCard news={news[7]?.news[0]} />
+          <TextCard news={news[7]?.news[1]} />
+          <TextCard news={news[7]?.news[2]} />
         </div>
       </div>
     </>

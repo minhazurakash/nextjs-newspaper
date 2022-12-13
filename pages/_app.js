@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <link
           rel="shortcut icon"
-          href="https://images.prothomalo.com/prothomalo/import/default/2016/03/15/4d3620a7127d4a031a05a962fcc4b253-palo-logo.jpg"
+          href="https://mpnews24bd.com/uploads/images/mpnews_image20221213082558.png"
         />
       </Head>
       {loading && <Spinner />}

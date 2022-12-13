@@ -10,9 +10,9 @@ const PortaitCard = ({ news }) => {
     <div className="mb-5 pb-5 custom-card custom-border-bottom">
       <Link href={`/category/${news?.category_name}/${news?.key}`}>
         <div className="">
-          <figure className="w-full overflow-hidden md:max-h-[250px] md:min-h-[200px]">
+          <figure className="w-full overflow-hidden md:h-[250px] ">
             <img
-              className="w-full h-full transition-all"
+              className="w-full h-full transition-all object-cover object-center"
               src={news?.image || "https://bpptik.kominfo.go.id/no_image.jpg"}
               alt="Movie"
             />
