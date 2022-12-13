@@ -6,18 +6,27 @@ import Head from "next/head";
 const ErrorElements = () => {
   return (
     <div className="h-screen flex justify-center items-center">
-       <Head>
-            <title>page not found -Prothom Alo</title>
-            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-            <meta property="og:title" content="page not found -Prothom Alo" key="title" />
-            <meta property="og:image" content="https://images.prothomalo.com/prothomalo/import/default/2016/03/15/4d3620a7127d4a031a05a962fcc4b253-palo-logo.jpg" key="image" itemProp='image'/>
-          </Head>
-       <div className="flex justify-center items-center">
-            <Link href="/">
-                <FaAngleLeft class="fa-solid fa-arrow-left text-3xl font-bold"/>
-            </Link>  
-            <p>Something went wrong</p>
-       </div>
+      <Head>
+        <title>page not found -MP news24BD</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          property="og:title"
+          content="page not found -Prothom Alo"
+          key="title"
+        />
+        <meta
+          property="og:image"
+          content="https://cdn.dribbble.com/users/594316/screenshots/16462848/media/4e5495fe678213b960203c39b10b7ffc.jpg?compress=1&resize=400x300"
+          key="image"
+          itemProp="image"
+        />
+      </Head>
+      <div className="flex justify-center items-center">
+        <Link href="/">
+          <FaAngleLeft class="fa-solid fa-arrow-left text-3xl font-bold" />
+        </Link>
+        <p>Something went wrong</p>
+      </div>
     </div>
   );
 };

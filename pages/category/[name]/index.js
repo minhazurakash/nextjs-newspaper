@@ -16,7 +16,7 @@ const CategoriesRoute = ({ news }) => {
   return (
     <div className="container mx-auto  px-3 sm:px-0">
       <Head>
-        <title>Category -Prothom Alo</title>
+        <title>Category -MP news24BD</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta property="og:title" content="Category -Prothom Alo" key="title" />
         <meta

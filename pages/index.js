@@ -18,13 +18,13 @@ const Home = ({ news }) => {
   return (
     <div className="container mx-auto px-3 sm:px-0">
       <Head>
-        <title>Prothom Alo</title>
+        <title>MP news24BD</title>
 
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta property="og:title" content="Prothom Alo" key="title" />
         <meta
           property="og:image"
-          content="https://images.prothomalo.com/prothomalo/import/default/2016/03/15/4d3620a7127d4a031a05a962fcc4b253-palo-logo.jpg"
+          content="https://mpnews24bd.com/uploads/images/mpnews_image20221213054553.png"
           key="image"
           itemProp="image"
         />
