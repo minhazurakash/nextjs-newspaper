@@ -21,7 +21,7 @@ const PortaitCard = ({ news }) => {
             <h2 className="text-xl lg:text-2xl font-semibold my-3 transition-all">
               {news?.title?.slice(0, 50) || "Please add more news here"}
             </h2>
-            <p>{content?.slice(0, 180) || DefaultNews.slice(0, 200)}...</p>
+            <p>{content?.slice(0, 100) || DefaultNews.slice(0, 100)}...</p>
             <div className="footer mt-3 text-gray-500">
               <p>{news?.datetime || "infinity hours ago"}</p>
             </div>

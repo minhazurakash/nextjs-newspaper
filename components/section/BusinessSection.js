@@ -16,7 +16,6 @@ const BusinessSection = ({ news }) => {
             <RactangleCard news={news?.news[1]} />
             <RactangleCard news={news?.news[2]} />
             <RactangleCard news={news?.news[3]} />
-            <RactangleCard news={news?.news[4]} />
           </div>
         </div>
       </div>

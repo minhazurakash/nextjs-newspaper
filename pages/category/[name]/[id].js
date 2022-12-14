@@ -102,15 +102,6 @@ const PostDetailsRoute = ({ post }) => {
             </div>
           </div>
           <PostDetails news={post?.data[0]} />
-          <div className="mt-10">
-            <div>
-              <h2 className="mb-4">আরও পড়ুন</h2>
-              <div className="grid sm:grid-cols-2 gap-5">
-                <RactangleCard news={news[0]} />
-                <RactangleCard news={news[1]} />
-              </div>
-            </div>
-          </div>
         </div>
         <div className="lg:col-span-1 custom-border">
           <div className="grid gap-5 my-5">
@@ -130,6 +121,16 @@ const PostDetailsRoute = ({ post }) => {
             <MixCard news={news[3]} />
             <MixCard news={news[4]} />
             <MixCard news={news[5]} />
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-10 w-full">
+        <div className="w-full">
+          <h2 className="mb-4">আরও পড়ুন</h2>
+          <div className="grid md:grid-cols-2 gap-5">
+            <RactangleCard news={news[0]} />
+            <RactangleCard news={news[1]} />
           </div>
         </div>
       </div>

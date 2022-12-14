@@ -6,9 +6,9 @@ const SquareCard = ({ news }) => {
     <div className="mb-5 pb-5 custom-card custom-border-bottom">
       <Link href={`/category/${news?.category_name}/${news?.key}`}>
         <div className="">
-          <figure className="w-full overflow-hidden">
+          <figure className="w-full lg:h-[200px] overflow-hidden">
             <img
-              className="w-full transition-all"
+              className="w-full h-full object-cover object-center transition-all"
               src={news?.image || "https://bpptik.kominfo.go.id/no_image.jpg"}
               alt="Movie"
             />

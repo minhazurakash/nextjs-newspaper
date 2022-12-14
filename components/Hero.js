@@ -6,7 +6,7 @@ import TextCard from "./TextCard";
 const Hero = ({ news }) => {
   return (
     <div className="grid  lg:grid-cols-4 gap-5">
-      <div className="lg:col-span-3">
+      <div className="lg:col-span-3 grid gap-5">
         {/* news  */}
         <div className="grid md:grid-cols-3 gap-5">
           <div className="md:col-span-2">
@@ -16,7 +16,7 @@ const Hero = ({ news }) => {
             <PortaitCard news={news[1]} />
           </div>
         </div>
-        <div className="grid sm:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-3 gap-5">
           <PortaitCard news={news[2]} />
           <PortaitCard news={news[3]} />
           <PortaitCard news={news[4]} />

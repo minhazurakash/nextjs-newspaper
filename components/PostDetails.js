@@ -78,17 +78,27 @@ const PostDetails = ({ news }) => {
             <div className="w-full">
               <form onSubmit={postComment}>
                 <input
-                  name="name"
-                  className="input mb-5 w-full input-primary"
+                  name="email"
+                  className="input mb-5 w-full bg-gray-200"
+                  placeholder="Email"
                   type="text"
+                />
+                <input
+                  name="name"
+                  className="input mb-5 w-full bg-gray-200"
+                  placeholder="Name"
+                  type="text"
+                  required
                 />
                 <textarea
                   name="comment"
-                  className="textarea w-full input-accent"
+                  className="textarea w-full bg-gray-200 min-h-[150px]"
+                  placeholder="Comment"
                   type="text"
+                  required
                 />
                 <div className="flex justify-end mt-3">
-                  <button className="btn btn-accent rounded-sm btn-sm">
+                  <button className="btn btn-accent bg-red-700 text-white border-none rounded-sm btn-sm">
                     Post
                   </button>
                 </div>
