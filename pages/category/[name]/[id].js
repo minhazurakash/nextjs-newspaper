@@ -128,7 +128,7 @@ const PostDetailsRoute = ({ post }) => {
       <div className="mt-10 w-full">
         <div className="w-full">
           <h2 className="mb-4">আরও পড়ুন</h2>
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-2 gap-5 md:gap-12">
             <RactangleCard news={news[0]} />
             <RactangleCard news={news[1]} />
           </div>

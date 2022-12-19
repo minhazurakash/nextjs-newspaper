@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .custom-btn {
+    @apply bg-red-700 text-white border-none rounded-sm btn-sm;
+  }
+}
+
 html,
 body {
   padding: 0;

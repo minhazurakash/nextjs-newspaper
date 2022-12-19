@@ -23,6 +23,9 @@ const MixCard = ({ news }) => {
                   <p className="">
                     {content?.slice(0, 45) || `${des.slice(0, 45)}..`}
                   </p>
+                  <div className="hidden md:block footer mt-4 text-gray-500">
+                    <p>{news?.datetime || "infinity hours ago"}</p>
+                  </div>
                 </div>
                 <figure className="w-full md:w-2/5  overflow-hidden">
                   <img
@@ -34,7 +37,7 @@ const MixCard = ({ news }) => {
                   />
                 </figure>
               </div>
-              <div className="footer mt-4 text-gray-500">
+              <div className="footer block md:hidden mt-4 text-gray-500">
                 <p>{news?.datetime || "infinity hours ago"}</p>
               </div>
             </div>

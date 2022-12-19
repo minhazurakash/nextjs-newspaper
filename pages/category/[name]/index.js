@@ -35,8 +35,9 @@ const CategoriesRoute = ({ news }) => {
       </div>
       {/* news and ad  */}
       <Hero news={news?.news} />
-      <div className="flex justify-center my-5">
+      <div className="flex justify-center my-5 h-80">
         <img
+          className="w-full object-cover object-center"
           src="https://www.famap.com.ng/wp-content/uploads/2017/11/advertise.jpg"
           alt=""
         />

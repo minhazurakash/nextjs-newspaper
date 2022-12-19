@@ -98,9 +98,7 @@ const PostDetails = ({ news }) => {
                   required
                 />
                 <div className="flex justify-end mt-3">
-                  <button className="btn btn-accent bg-red-700 text-white border-none rounded-sm btn-sm">
-                    Post
-                  </button>
+                  <button className="btn custom-btn">Post</button>
                 </div>
               </form>
             </div>
