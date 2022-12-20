@@ -30,7 +30,7 @@ const Hero = ({ news }) => {
             alt=""
           />
         </div>
-        <div className="grid grid-cols-2 lg:grid-cols-1 gap-5 custom-border">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-5 custom-border">
           <TextCard serial="1" news={news[5]} />
           <TextCard serial="2" news={news[6]} />
           <TextCard serial="3" news={news[7]} />

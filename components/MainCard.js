@@ -5,7 +5,7 @@ const MainCard = ({ link = "/category/school/id", news }) => {
   return (
     <>
       <Link href={`/category/${news?.category_name}/${news?.key}`}>
-        <div className="w-full md:max-h-[450px] md:min-h-[450px] relative custom-card overflow-hidden">
+        <div className="w-full md:h-[450px] relative custom-card overflow-hidden">
           <img
             className="w-full object-center object-cover transition-all h-full"
             src={

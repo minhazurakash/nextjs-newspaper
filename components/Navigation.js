@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import logo from "../assests/Prothom-Alo-logo.jpg";
-import { FaBars, FaSearch } from "react-icons/fa";
+import {
+  FaBars,
+  FaClosedCaptioning,
+  FaSearch,
+  FaWindowClose,
+} from "react-icons/fa";
 import Link from "next/link";
 import { data } from "autoprefixer";
 import { useRouter } from "next/router";
@@ -57,24 +62,23 @@ const Navigation = () => {
         className="w-full transition-all shadow-xl mb-10 px-3 sm:px-0 fixed bg-white z-40"
       >
         <div className="container mx-auto h-28 flex justify-between items-center">
-          <div className="w-1/3 hidden md:block">
-            {/* <div className="flex gap-3 items-center mb-3">
-            <input className="input input-xs bg-transparent input-secondary rounded-none focus:outline-none" />
-            <FaSearch className="text-xl cursor-pointer" />
-          </div>
-          <h5 className="text-xs">মঙ্গলবার, ০৬ ডিসেম্বর ২০২২</h5> */}
-          </div>
-          <div className="w-1/3 block md:hidden">
-            <div className="block">
-              <FaBars
-                onClick={() => setHidden(!hidden)}
-                className="text-xl cursor-pointer"
-              />
+          <div className="w-1/3">
+            <div className="block mb-3">
+              <div className="block">
+                <FaBars
+                  onClick={() => setHidden(!hidden)}
+                  className="text-2xl cursor-pointer"
+                />
+              </div>
             </div>
+            <h5 className="text-xs hidden md:block">
+              মঙ্গলবার, ০৬ ডিসেম্বর ২০২২
+            </h5>
           </div>
+
           <div className="w-1/3 flex justify-center items-center h-full">
             <Link href="/">
-              <img className="w-48" src={logo} alt="" />
+              <img className=" w-60" src={logo} alt="" />
             </Link>
           </div>
           <div className="w-1/3 text-right">
@@ -93,7 +97,9 @@ const Navigation = () => {
               return (
                 <li key={item.key}>
                   <Link href={`/category/${item?.name}`} legacyBehavior>
-                    <a className="hover:text-blue-500">{item?.name}</a>
+                    <a className="hover:text-blue-500 font-bold">
+                      {item?.name}
+                    </a>
                   </Link>
                 </li>
               );
@@ -126,27 +132,36 @@ const Navigation = () => {
           </ul>
         </div>
       </div>
-      <div className="block md:hidden">
+      <div className="">
         <div
           className={`${
             hidden
               ? "hidden"
-              : "block  fixed bg-white top-0 left-0 overflow-scroll min-w-[250px] h-screen z-50"
-          } py-3 border-t-2 grid gap-5 justify-start  transition-all right-shadow`}
+              : "block  fixed bg-white top-0 left-0 overflow-scroll w-full md:w-[300px] h-screen z-50"
+          } py-3 border-t-2 grid grid-cols-1 gap-5 justify-start  transition-all right-shadow`}
         >
-          <div className="block pl-5 py-3">
-            <FaBars
+          <div className="md:hidden flex justify-center shadow-md mb-5 h-28">
+            <div className="w-1/3 flex justify-center items-center h-full">
+              <Link href="/">
+                <img className=" w-60" src={logo} alt="" />
+              </Link>
+            </div>
+          </div>
+          <div className="block pl-5 py-3 absolute top-2 left-2">
+            <FaWindowClose
               onClick={() => setHidden(!hidden)}
               className="text-xl cursor-pointer"
             />
           </div>
-          <div>
-            <ul className="px-5 grid grid-cols-1 sm:grid-cols-1 md:flex md:flex-wrap md:justify-center gap-5">
+          <div className="w-full md:mt-14">
+            <ul className="px-5 grid grid-cols-2 text-center md:text-left md:grid-cols-1 gap-5">
               {nav.map((item) => {
                 return (
                   <li className="" key={item.key}>
                     <Link href={`/category/${item?.name}`} legacyBehavior>
-                      <a className="hover:text-blue-500">{item?.name}</a>
+                      <a className="hover:text-blue-500 font-bold">
+                        {item?.name}
+                      </a>
                     </Link>
                   </li>
                 );

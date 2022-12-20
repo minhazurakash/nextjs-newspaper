@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const CategoriesRoute = ({ news }) => {
+  console.log(news);
   const router = useRouter();
   const [limit, setLimit] = useState(15);
   const moreNews = news?.news.slice(10, limit);
