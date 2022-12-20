@@ -3,6 +3,7 @@ import Link from "next/link";
 import {
   FaCopy,
   FaFacebookSquare,
+  FaLinkedin,
   FaTwitterSquare,
   FaWhatsappSquare,
 } from "react-icons/fa";
@@ -13,6 +14,7 @@ import SquareCard from "../../../components/SquareCard";
 import PostDetails from "../../../components/PostDetails";
 import {
   FacebookShareButton,
+  LinkedinShareButton,
   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
@@ -96,6 +98,14 @@ const PostDetailsRoute = ({ post }) => {
                         <FaWhatsappSquare />
                       </div>
                     </WhatsappShareButton>
+                    <LinkedinShareButton
+                      url={`https://akash-prothom-alo.vercel.app/category/${router.query.name}/${router.query.id}`}
+                      quote="Hello Developers!"
+                    >
+                      <div className="text-3xl hover:scale-105 transition-all text-blue-600">
+                        <FaLinkedin />
+                      </div>
+                    </LinkedinShareButton>
                   </div>
                 </div>
               </div>
