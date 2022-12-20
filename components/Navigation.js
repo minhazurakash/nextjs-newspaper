@@ -140,20 +140,18 @@ const Navigation = () => {
               : "block  fixed bg-white top-0 left-0 overflow-scroll w-full md:w-[300px] h-screen z-50"
           } py-3 grid grid-cols-1 gap-5 justify-start  transition-all right-shadow`}
         >
-          <div className="md:hidden flex justify-center shadow-md h-28">
-            <div className="w-1/3 flex justify-center items-center h-full">
-              <Link href="/">
-                <img className=" w-60" src={logo} alt="" />
-              </Link>
-            </div>
-          </div>
-          <div className="block pl-5 py-3 absolute top-2 left-2">
+          <div className="spl-5 py-3 absolute top-2 left-2">
             <FaWindowClose
               onClick={() => setHidden(!hidden)}
               className="text-xl cursor-pointer"
             />
           </div>
-          <div className="w-full mt-0 md:mt-14">
+          <div className="w-full md:mt-14">
+            <div className="md:hidden mb-10 flex justify-center items-center shadow-md h-28">
+              <Link href="/">
+                <img className="w-60" src={logo} alt="" />
+              </Link>
+            </div>
             <ul className="px-5 grid grid-cols-2 text-center md:text-left md:grid-cols-1 gap-5">
               {nav.map((item) => {
                 return (
