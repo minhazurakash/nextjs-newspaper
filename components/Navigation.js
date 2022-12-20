@@ -71,9 +71,9 @@ const Navigation = () => {
                 />
               </div>
             </div>
-            <h5 className="text-xs hidden md:block">
+            {/* <h5 className="text-xs hidden md:block">
               মঙ্গলবার, ০৬ ডিসেম্বর ২০২২
-            </h5>
+            </h5> */}
           </div>
 
           <div className="w-1/3 flex justify-center items-center h-full">
