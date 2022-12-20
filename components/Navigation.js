@@ -138,9 +138,9 @@ const Navigation = () => {
             hidden
               ? "hidden"
               : "block  fixed bg-white top-0 left-0 overflow-scroll w-full md:w-[300px] h-screen z-50"
-          } py-3 border-t-2 grid grid-cols-1 gap-5 justify-start  transition-all right-shadow`}
+          } py-3 grid grid-cols-1 gap-5 justify-start  transition-all right-shadow`}
         >
-          <div className="md:hidden flex justify-center shadow-md mb-5 h-28">
+          <div className="md:hidden flex justify-center shadow-md h-28">
             <div className="w-1/3 flex justify-center items-center h-full">
               <Link href="/">
                 <img className=" w-60" src={logo} alt="" />
@@ -153,7 +153,7 @@ const Navigation = () => {
               className="text-xl cursor-pointer"
             />
           </div>
-          <div className="w-full md:mt-14">
+          <div className="w-full mt-0 md:mt-14">
             <ul className="px-5 grid grid-cols-2 text-center md:text-left md:grid-cols-1 gap-5">
               {nav.map((item) => {
                 return (
