@@ -17,6 +17,13 @@ const Navigation = () => {
   const [hidden, setHidden] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
+  const [temp, setTemp] = useState({});
+  if (temp.weather) {
+    const tempImg = `http://openweathermap.org/img/wn/${temp?.weather[0]?.icon}@2x.png`;
+  }
+  console.log(temp);
+  const API_KEY = `46ad7457603b9b0104e633e78cd60e16`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=dhaka&appid=${API_KEY}&units=metric`;
 
   // new function:
   const handleScroll = () => {
@@ -51,6 +58,10 @@ const Navigation = () => {
       .then((res) => res.json())
       .then((logo) => setLogo(logo.website.logo));
 
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setTemp(data));
+
     router.events.on("routeChangeComplete", () => {
       setHidden(true);
     });
@@ -81,12 +92,23 @@ const Navigation = () => {
               <img className=" w-60" src={logo} alt="" />
             </Link>
           </div>
-          <div className="w-1/3 text-right">
+          <div className="w-1/3 text-right flex justify-end">
             {/* <Link href="/user/login">
             <button className="btn btn-sm rounded-none border bg-transparent text-blue-500">
               Login
             </button>
           </Link> */}
+            <div className="justify-center flex-col items-center hidden md:flex">
+              <img
+                className="w-14"
+                src={
+                  temp.weather &&
+                  `http://openweathermap.org/img/wn/${temp?.weather[0]?.icon}@2x.png`
+                }
+                alt="temp"
+              />
+              <h3>{temp?.main?.temp}℃</h3>
+            </div>
           </div>
         </div>
         <div
