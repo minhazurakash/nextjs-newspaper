@@ -5,21 +5,24 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const CategoriesRoute = ({ news }) => {
-  console.log(news);
   const router = useRouter();
   const [limit, setLimit] = useState(15);
   const moreNews = news?.news.slice(10, limit);
+  const [sponsor, setSponsor] = useState([]);
   useEffect(() => {
     router.events.on("routeChangeComplete", () => {
       setLimit(15);
     });
+    fetch("https://mpnews24bd.com/api/sponsor")
+      .then((res) => res.json())
+      .then((data) => setSponsor(data?.sponsor));
   }, []);
   return (
     <div className="container mx-auto  px-3 sm:px-0">
       <Head>
         <title>Category -MP news24BD</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta property="og:title" content="Category -Prothom Alo" key="title" />
+        <meta property="og:title" content="Category -MP news24BD" key="title" />
         <meta
           property="og:image"
           content="https://images.prothomalo.com/prothomalo/import/default/2016/03/15/4d3620a7127d4a031a05a962fcc4b253-palo-logo.jpg"
@@ -30,17 +33,23 @@ const CategoriesRoute = ({ news }) => {
       <div className="flex justify-center my-5 h-28 w-full">
         <img
           className="w-full object-cover object-center"
-          src="https://www.famap.com.ng/wp-content/uploads/2017/11/advertise.jpg"
+          src={
+            sponsor?.top ||
+            "https://t3.ftcdn.net/jpg/04/75/82/02/360_F_475820251_BuiYKHdgUSx6vIpYJJJJVrtrEn4tVEzZ.jpg"
+          }
           alt="ad images"
         />
       </div>
       {/* news and ad  */}
       <Hero news={news?.news} />
-      <div className="flex justify-center my-5 h-80">
+      <div className="flex justify-center my-5 w-full h-36">
         <img
           className="w-full object-cover object-center"
-          src="https://www.famap.com.ng/wp-content/uploads/2017/11/advertise.jpg"
-          alt=""
+          src={
+            sponsor?.bottom ||
+            "https://t3.ftcdn.net/jpg/04/75/82/02/360_F_475820251_BuiYKHdgUSx6vIpYJJJJVrtrEn4tVEzZ.jpg"
+          }
+          alt="Your websites add"
         />
       </div>
       <div className="custom-border sm:w-[500px] mx-auto my-10">

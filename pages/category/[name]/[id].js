@@ -24,12 +24,16 @@ import { useRouter } from "next/router";
 const PostDetailsRoute = ({ post }) => {
   const router = useRouter();
 
-  console.log(post);
+  const [sponsor, setSponsor] = useState([]);
   const [news, setNews] = useState([]);
   useEffect(() => {
     fetch(`https://mpnews24bd.com/api/category/${router.query.name}`)
       .then((res) => res.json())
       .then((data) => setNews(data.news));
+
+    fetch("https://mpnews24bd.com/api/sponsor")
+      .then((res) => res.json())
+      .then((data) => setSponsor(data?.sponsor));
   }, []);
   console.log(news);
 
@@ -41,7 +45,7 @@ const PostDetailsRoute = ({ post }) => {
         <meta property="og:title" content={post?.data[0]?.title} key="title" />
         <meta
           property="og:image"
-          content={post?.data[0]?.image}
+          content={post?.data[0]?.social_image || post?.data[0]?.image}
           key="image"
           itemProp="image"
         />
@@ -49,7 +53,10 @@ const PostDetailsRoute = ({ post }) => {
       <div className="flex justify-center my-5 h-28 w-full">
         <img
           className="w-full object-cover object-center"
-          src="https://www.famap.com.ng/wp-content/uploads/2017/11/advertise.jpg"
+          src={
+            sponsor?.top ||
+            "https://t3.ftcdn.net/jpg/04/75/82/02/360_F_475820251_BuiYKHdgUSx6vIpYJJJJVrtrEn4tVEzZ.jpg"
+          }
           alt="ad images"
         />
       </div>
@@ -114,15 +121,21 @@ const PostDetailsRoute = ({ post }) => {
           <PostDetails news={post?.data[0]} />
         </div>
         <div className="lg:col-span-1 custom-border">
-          <div className="grid gap-5 my-5">
+          <div className="grid gap-14 my-5">
             <img
               className="w-full"
-              src="https://www.infomogli.com/assets/images/ads(450-x-450).png"
+              src={
+                sponsor?.side_1 ||
+                "https://t3.ftcdn.net/jpg/04/75/82/02/360_F_475820251_BuiYKHdgUSx6vIpYJJJJVrtrEn4tVEzZ.jpg"
+              }
               alt=""
             />
             <img
               className="w-full"
-              src="https://www.infomogli.com/assets/images/ads(450-x-450).png"
+              src={
+                sponsor?.side_2 ||
+                "https://t3.ftcdn.net/jpg/04/75/82/02/360_F_475820251_BuiYKHdgUSx6vIpYJJJJVrtrEn4tVEzZ.jpg"
+              }
               alt=""
             />
           </div>

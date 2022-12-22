@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MainCard from "./MainCard";
 import PortaitCard from "./PortaitCard";
 import TextCard from "./TextCard";
 
 const Hero = ({ news }) => {
+  const [sponsor, setSponsor] = useState([]);
+  useEffect(() => {
+    fetch("https://mpnews24bd.com/api/sponsor")
+      .then((res) => res.json())
+      .then((data) => setSponsor(data?.sponsor));
+  }, []);
   return (
     <div className="grid  lg:grid-cols-4 gap-5">
       <div className="lg:col-span-3 grid gap-5">
@@ -26,7 +32,10 @@ const Hero = ({ news }) => {
         <div className="mb-5">
           <img
             className="w-full"
-            src="https://www.infomogli.com/assets/images/ads(450-x-450).png"
+            src={
+              sponsor?.side_1 ||
+              "https://t3.ftcdn.net/jpg/04/75/82/02/360_F_475820251_BuiYKHdgUSx6vIpYJJJJVrtrEn4tVEzZ.jpg"
+            }
             alt=""
           />
         </div>
