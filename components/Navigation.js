@@ -93,7 +93,7 @@ const Navigation = () => {
           className={`hidden md:relative md:bg-transparent py-3 border-t-2 md:flex flex-wrap gap-5 justify-center min-h-[50px] transition-all`}
         >
           <ul className="px-5 grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap md:justify-center gap-5">
-            {nav.map((item) => {
+            {nav?.slice(0, 12)?.map((item) => {
               return (
                 <li key={item.key}>
                   <Link href={`/category/${item?.name}`} legacyBehavior>
