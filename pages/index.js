@@ -7,6 +7,7 @@ import CatagorieSection from "../components/section/CatagorieSection";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import Spinner from "../components/Spinner";
+import PhotoSection from "../components/section/PhotoSection";
 
 const Home = ({ news }) => {
   const [category, setCategory] = useState([]);
@@ -44,6 +45,7 @@ const Home = ({ news }) => {
           <button className="btn btn-xs btn-accent">Loading...</button>
         </div>
       )}
+      <PhotoSection />
     </div>
   );
 };

@@ -1,11 +1,21 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { FaFileImage } from "react-icons/fa";
 
 const MainCard = ({ link = "/category/school/id", news }) => {
+  const router = useRouter();
+  const photoPath = router.pathname;
+
   return (
     <>
       <Link href={`/category/${news?.category_name}/${news?.key}`}>
         <div className="w-full md:h-[450px] relative custom-card overflow-hidden">
+          {photoPath.includes("/photo") && (
+            <div className="bg-red-600 inline-block p-3 rounded-full absolute top-2 left-2 z-10">
+              <FaFileImage size={"20px"} color="white" />
+            </div>
+          )}
           <img
             className="w-full object-center object-cover transition-all h-full"
             src={

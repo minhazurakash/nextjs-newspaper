@@ -21,7 +21,6 @@ const Navigation = () => {
   if (temp.weather) {
     const tempImg = `http://openweathermap.org/img/wn/${temp?.weather[0]?.icon}@2x.png`;
   }
-  console.log(temp);
   const API_KEY = `46ad7457603b9b0104e633e78cd60e16`;
   const url = `https://api.openweathermap.org/data/2.5/weather?q=dhaka&appid=${API_KEY}&units=metric`;
 
@@ -126,6 +125,11 @@ const Navigation = () => {
                 </li>
               );
             })}
+            <li>
+              <Link href={"/photo"} legacyBehavior>
+                <a className="hover:text-blue-500 font-bold">Photo</a>
+              </Link>
+            </li>
             {/* <li>
             <Link href="/category/aksh" legacyBehavior>
               <a className="hover:text-blue-500">Life-style</a>
@@ -186,6 +190,11 @@ const Navigation = () => {
                   </li>
                 );
               })}
+              <li>
+                <Link href={"/photo"} legacyBehavior>
+                  <a className="hover:text-blue-500 font-bold">Photo</a>
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

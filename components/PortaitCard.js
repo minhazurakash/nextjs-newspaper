@@ -13,7 +13,9 @@ const PortaitCard = ({ news }) => {
           <figure className="w-full overflow-hidden md:h-[250px] ">
             <img
               className="w-full h-full transition-all object-cover object-center"
-              src={news?.image || "https://bpptik.kominfo.go.id/no_image.jpg"}
+              src={
+                news?.image || "https://i.ibb.co/VVPKsXp/image-Not-Found.jpg"
+              }
               alt="Movie"
             />
           </figure>

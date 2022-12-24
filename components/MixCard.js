@@ -31,7 +31,8 @@ const MixCard = ({ news }) => {
                   <img
                     className="w-full transition-all"
                     src={
-                      news?.image || "https://bpptik.kominfo.go.id/no_image.jpg"
+                      news?.image ||
+                      "https://i.ibb.co/VVPKsXp/image-Not-Found.jpg"
                     }
                     alt="Movie"
                   />

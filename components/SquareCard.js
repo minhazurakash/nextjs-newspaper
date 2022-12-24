@@ -9,7 +9,9 @@ const SquareCard = ({ news }) => {
           <figure className="w-full lg:h-[200px] overflow-hidden">
             <img
               className="w-full h-full object-cover object-center transition-all"
-              src={news?.image || "https://bpptik.kominfo.go.id/no_image.jpg"}
+              src={
+                news?.image || "https://i.ibb.co/VVPKsXp/image-Not-Found.jpg"
+              }
               alt="Movie"
             />
           </figure>

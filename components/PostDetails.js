@@ -54,7 +54,7 @@ const PostDetails = ({ news }) => {
       <div className="w-full py-4 border-t-2 border-b-2">
         <img
           className="w-full"
-          src={news?.image || "https://bpptik.kominfo.go.id/no_image.jpg"}
+          src={news?.image || "https://i.ibb.co/VVPKsXp/image-Not-Found.jpg"}
           alt="post details images"
         />
       </div>

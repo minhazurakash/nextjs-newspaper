@@ -13,6 +13,7 @@ import {
 const Footer = () => {
   const [logo, setLogo] = useState("");
   const [nav, setNav] = useState([]);
+  let date = new Date().getFullYear();
   useEffect(() => {
     fetch("https://mpnews24bd.com/api/website")
       .then((res) => res.json())
@@ -31,7 +32,10 @@ const Footer = () => {
         {nav &&
           nav?.map((item) => {
             return (
-              <div className="hover:text-blue-600 text-md cursor-pointer">
+              <div
+                key={item?.key}
+                className="hover:text-blue-600 text-md cursor-pointer"
+              >
                 <Link href={`/category/${item?.name}`}>{item?.name}</Link>
               </div>
             );
@@ -94,7 +98,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="my-8 text-center">
-        <p>স্বত্ব © ২০২২ mpnews24bd || Developed ❤️ Anik & Akash</p>
+        <p>স্বত্ব © {date} || mpnews24bd</p>
       </div>
     </div>
   );
