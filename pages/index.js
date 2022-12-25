@@ -8,15 +8,24 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import Spinner from "../components/Spinner";
 import PhotoSection from "../components/section/PhotoSection";
+import useSWR from "swr";
+import LazyComponents from "../components/LazyComponents";
+const Home = () => {
+  const fetcher = async (...args) => fetch(...args).then((res) => res.json());
 
-const Home = ({ news }) => {
-  const [category, setCategory] = useState([]);
-  useEffect(() => {
-    fetch(`https://mpnews24bd.com/api/category`)
-      .then((res) => res.json())
-      .then((data) => setCategory(data?.data));
-  }, []);
+  const {
+    data: category,
+    error,
+    isLoading,
+  } = useSWR("https://mpnews24bd.com/api/category", fetcher);
 
+  const fetcher2 = async (...args) => fetch(...args).then((res) => res.json());
+
+  const { data: news, isLoading2 } = useSWR(
+    "https://mpnews24bd.com/api/leatest-news",
+    fetcher2
+  );
+  console.log(news);
   return (
     <div className="container mx-auto px-3 sm:px-0">
       <Head>
@@ -31,19 +40,17 @@ const Home = ({ news }) => {
           itemProp="image"
         />
       </Head>
-      <Hero news={news?.news} />
-      {category?.length > 0 ? (
+      {news ? <Hero news={news?.news} /> : <LazyComponents />}
+      {category?.data?.length > 0 ? (
         <>
-          <EntertainmentSection news={category[0]} />
-          <LifeStyleSection news={category[1]} />
-          <WorldSection news={category[2]} />
-          <BusinessSection news={category[3]} />
-          <CatagorieSection news={category} />
+          <EntertainmentSection news={category?.data[0]} />
+          <LifeStyleSection news={category?.data[1]} />
+          <WorldSection news={category?.data[2]} />
+          <BusinessSection news={category?.data[3]} />
+          <CatagorieSection news={category?.data} />
         </>
       ) : (
-        <div className="flex justify-center my-14">
-          <button className="btn btn-xs btn-accent">Loading...</button>
-        </div>
+        <LazyComponents />
       )}
       <PhotoSection />
     </div>
@@ -52,14 +59,14 @@ const Home = ({ news }) => {
 
 export default Home;
 
-export async function getServerSideProps({ query }) {
-  console.log(query);
-  const res = await fetch(`https://mpnews24bd.com/api/leatest-news`);
-  const data = await res.json();
+// export async function getServerSideProps({ query }) {
+//   console.log(query);
+//   const res = await fetch(`https://mpnews24bd.com/api/leatest-news`);
+//   const data = await res.json();
 
-  return {
-    props: {
-      news: data,
-    },
-  };
-}
+//   return {
+//     props: {
+//       news: data,
+//     },
+//   };
+// }

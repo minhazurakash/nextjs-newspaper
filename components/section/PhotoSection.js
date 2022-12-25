@@ -9,7 +9,6 @@ const PhotoSection = () => {
       .then((res) => res.json())
       .then((data) => setPhoto(data?.photo));
   }, []);
-  console.log(photo);
   return (
     <div className="mb-10">
       <SectionHeader title={"Photo"} link="/photo" />

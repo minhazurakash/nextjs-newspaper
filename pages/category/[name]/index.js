@@ -3,11 +3,12 @@ import Hero from "../../../components/Hero";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import useSWR from "swr";
+import LazyComponents from "../../../components/LazyComponents";
 
-const CategoriesRoute = ({ news }) => {
+const CategoriesRoute = () => {
   const router = useRouter();
   const [limit, setLimit] = useState(15);
-  const moreNews = news?.news.slice(10, limit);
   const [sponsor, setSponsor] = useState([]);
   useEffect(() => {
     router.events.on("routeChangeComplete", () => {
@@ -17,6 +18,18 @@ const CategoriesRoute = ({ news }) => {
       .then((res) => res.json())
       .then((data) => setSponsor(data?.sponsor));
   }, []);
+  const fetcher = async (...args) => fetch(...args).then((res) => res.json());
+
+  const {
+    data: category,
+    error,
+    isLoading,
+  } = useSWR(
+    `https://mpnews24bd.com/api/category/${router.query.name}`,
+    fetcher
+  );
+  const moreNews = category?.news.slice(10, limit);
+
   return (
     <div className="container mx-auto  px-3 sm:px-0">
       <Head>
@@ -41,7 +54,7 @@ const CategoriesRoute = ({ news }) => {
         />
       </div>
       {/* news and ad  */}
-      <Hero news={news?.news} />
+      {category ? <Hero news={category?.news} /> : <LazyComponents />}
       <div className="flex justify-center my-5 w-full h-36">
         <img
           className="w-full object-cover object-center"
@@ -56,7 +69,7 @@ const CategoriesRoute = ({ news }) => {
         {moreNews?.map((item) => {
           return <RactangleCard news={item} key={item.key} />;
         })}
-        {limit < news?.news.length && (
+        {limit < category?.news.length && (
           <div className="text-center">
             <button onClick={() => setLimit(limit + 5)} className="btn btn-xs">
               Load more ...
@@ -70,13 +83,13 @@ const CategoriesRoute = ({ news }) => {
 
 export default CategoriesRoute;
 
-export async function getServerSideProps({ query }) {
-  const res = await fetch(`https://mpnews24bd.com/api/category/${query.name}`);
-  const news = await res.json();
+// export async function getServerSideProps({ query }) {
+//   const res = await fetch(`https://mpnews24bd.com/api/category/${query.name}`);
+//   const news = await res.json();
 
-  return {
-    props: {
-      news: news,
-    },
-  };
-}
+//   return {
+//     props: {
+//       news: news,
+//     },
+//   };
+// }

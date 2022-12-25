@@ -125,11 +125,7 @@ const Navigation = () => {
                 </li>
               );
             })}
-            <li>
-              <Link href={"/photo"} legacyBehavior>
-                <a className="hover:text-blue-500 font-bold">Photo</a>
-              </Link>
-            </li>
+
             {/* <li>
             <Link href="/category/aksh" legacyBehavior>
               <a className="hover:text-blue-500">Life-style</a>
