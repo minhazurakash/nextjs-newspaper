@@ -50,7 +50,7 @@ const photoDetails = ({ post }) => {
           itemProp="image"
         />
       </Head>
-      <div className="flex justify-center my-5 h-28 w-full">
+      <div className="flex justify-center my-5 md:h-28 w-full">
         <img
           className="w-full object-cover object-center"
           src={
