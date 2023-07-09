@@ -40,7 +40,7 @@ const Home = () => {
           itemProp="image"
         />
       </Head>
-      {news ? <Hero news={news?.news} /> : <LazyComponents />}
+      {/* {news ? <Hero news={news?.news} /> : <LazyComponents />} */}
       {category?.data?.length > 0 ? (
         <>
           <EntertainmentSection news={category?.data[0]} />
@@ -52,7 +52,7 @@ const Home = () => {
       ) : (
         <LazyComponents />
       )}
-      {/* <PhotoSection /> */}
+      <PhotoSection />
     </div>
   );
 };
